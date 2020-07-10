@@ -1,0 +1,511 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "478966A3-E477-42E3-BE68-DA27F75AFE08"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FDFE0504-2096-4A65-900B-26BE2FAD5C50"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "44C10C5D-155C-4B3A-A0F7-F62E50A1BECF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "avatarImage"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "44C10C5D-155C-4B3A-A0F7-F62E50A1BECF - 268f09d22d01bcdf"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Course2FinalTask.FeedCell.(avatarImage in _6F0A5BFA38BB502927CE15823310387D).getter : __C.UIImageView"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "44C10C5D-155C-4B3A-A0F7-F62E50A1BECF - 1955eaaf11821153"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Course2FinalTask.FeedCell.(avatarImage in _6F0A5BFA38BB502927CE15823310387D).setter : __C.UIImageView"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "44C10C5D-155C-4B3A-A0F7-F62E50A1BECF - c193c72db1cea40"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Course2FinalTask.FeedCell.(avatarImage in _6F0A5BFA38BB502927CE15823310387D).modify : __C.UIImageView"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "44C10C5D-155C-4B3A-A0F7-F62E50A1BECF - 6ddabc834961bc30"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Course2FinalTask.FeedCell.(avatarImage in _6F0A5BFA38BB502927CE15823310387D).modify : __C.UIImageView with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "23"
+                  endingLineNumber = "23"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "44C10C5D-155C-4B3A-A0F7-F62E50A1BECF - 7cd92777a7f81f7f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __C.UIImageView in Course2FinalTask.FeedCell.(avatarImage in _6F0A5BFA38BB502927CE15823310387D).getter : __C.UIImageView"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "24"
+                  endingLineNumber = "24"
+                  offsetFromSymbolStart = "14">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ADC32F4B-7E21-4319-B4A7-85DC4332E3BB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "usersName"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "ADC32F4B-7E21-4319-B4A7-85DC4332E3BB - 8401db3b6d7a12ff"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Course2FinalTask.FeedCell.(usersName in _6F0A5BFA38BB502927CE15823310387D).getter : __C.UILabel"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "ADC32F4B-7E21-4319-B4A7-85DC4332E3BB - 4440a3eef97d36f3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Course2FinalTask.FeedCell.(usersName in _6F0A5BFA38BB502927CE15823310387D).setter : __C.UILabel"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "ADC32F4B-7E21-4319-B4A7-85DC4332E3BB - 2f6e5b932d302580"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Course2FinalTask.FeedCell.(usersName in _6F0A5BFA38BB502927CE15823310387D).modify : __C.UILabel"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "ADC32F4B-7E21-4319-B4A7-85DC4332E3BB - 96b59171754273e1"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Course2FinalTask.FeedCell.(usersName in _6F0A5BFA38BB502927CE15823310387D).modify : __C.UILabel with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "29"
+                  endingLineNumber = "29"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "ADC32F4B-7E21-4319-B4A7-85DC4332E3BB - 2e1b3f12e0f181de"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __C.UILabel in Course2FinalTask.FeedCell.(usersName in _6F0A5BFA38BB502927CE15823310387D).getter : __C.UILabel"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "17">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "713E682D-5AFC-4026-855C-BC13165A09CC"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "timeStamp"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "713E682D-5AFC-4026-855C-BC13165A09CC - 90cde0c87f20dcfc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Course2FinalTask.FeedCell.(timeStamp in _6F0A5BFA38BB502927CE15823310387D).getter : __C.UILabel"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "713E682D-5AFC-4026-855C-BC13165A09CC - 530c48bb0b2bc0f0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Course2FinalTask.FeedCell.(timeStamp in _6F0A5BFA38BB502927CE15823310387D).setter : __C.UILabel"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "164">
+               </Location>
+               <Location
+                  uuid = "713E682D-5AFC-4026-855C-BC13165A09CC - 3a2a60a038fef781"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Course2FinalTask.FeedCell.(timeStamp in _6F0A5BFA38BB502927CE15823310387D).modify : __C.UILabel"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "713E682D-5AFC-4026-855C-BC13165A09CC - 59302d3e850ad171"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Course2FinalTask.FeedCell.(timeStamp in _6F0A5BFA38BB502927CE15823310387D).modify : __C.UILabel with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "26">
+               </Location>
+               <Location
+                  uuid = "713E682D-5AFC-4026-855C-BC13165A09CC - 483aabae5ec043df"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; __C.UILabel in Course2FinalTask.FeedCell.(timeStamp in _6F0A5BFA38BB502927CE15823310387D).getter : __C.UILabel"
+                  moduleName = "Course2FinalTask"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/colonelcassad/Downloads/Course%20work/Course2FinalTask/Course2FinalTask/Code/FeedCell.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "37"
+                  endingLineNumber = "37"
+                  offsetFromSymbolStart = "17">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F9C7DEDB-BE54-4E13-B284-FFA724D5412C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedTableViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "43"
+            endingLineNumber = "43"
+            landmarkName = "viewDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1D89DB85-EE55-4B46-909E-733DDAE7B32F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "avatarImage"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FD89CEDF-0F10-41D2-973E-A09F0AC4B4E5"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "avatarImage"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F6725A42-477D-4200-899C-328A53B980C3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "19"
+            endingLineNumber = "19"
+            landmarkName = "avatarImage"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0ACF8ADB-DBB1-4FAE-ADA0-4ED06CC8D93F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "avatarImage"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E153EF02-872E-46CE-8B3C-5CE25D7113F3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "usersName"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A26629DD-F28A-43C5-AABF-D9629B435ED3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "23"
+            endingLineNumber = "23"
+            landmarkName = "usersName"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8AA5075E-3634-4EB1-A6DC-084376FD5549"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "usersName"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C28626E8-CA96-4482-9B8E-7B2D019007BB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "usersName"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "FA7716B2-A3C8-43A6-91E4-31746CFCA379"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "timeStamp"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B410962F-19EF-4DFA-8240-813FA4FF95A6"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
+            landmarkName = "timeStamp"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EF783EA3-C70B-4804-AD06-4FBD8078B0DA"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "timeStamp"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D1A1B83B-454E-4734-8F55-5F24655AFFBB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Course2FinalTask/Code/FeedCell.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "timeStamp"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
