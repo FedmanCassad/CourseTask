@@ -28,19 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     profileViewController.profile =  DataProviders.shared.usersDataProvider.currentUser()
     let feedNavigationController = UINavigationController()
     let profileNavigationController = UINavigationController()
-    
     window = UIWindow(frame: UIScreen.main.bounds)
-    
     feedNavigationController.viewControllers = [feedViewController]
     profileNavigationController.viewControllers = [profileViewController]
-    
     tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
     tabBarController.tabBar.unselectedItemTintColor = .lightGray
     feedNavigationController.tabBarItem = UITabBarItem(title: "Feed", image: feedImage, selectedImage: feedImage)
     profileNavigationController.tabBarItem = UITabBarItem(title: "Profile", image: profileImage, selectedImage: profileImage)
     window?.rootViewController = tabBarController
     window?.makeKeyAndVisible()
-    
     return true
   }
+  
 }
