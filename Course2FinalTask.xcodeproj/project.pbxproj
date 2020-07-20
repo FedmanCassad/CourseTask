@@ -11,9 +11,23 @@
 		7484B05520441FD000BDE1A6 /* DataProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7484B05320441FD000BDE1A6 /* DataProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B79257202B3254006BCB41 /* AppDelegate.swift */; };
 		74B7925F202B3254006BCB41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B7925E202B3254006BCB41 /* Assets.xcassets */; };
-		D85B1A3A24B53D9E007925F1 /* Extenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85B1A3924B53D9E007925F1 /* Extenstions.swift */; };
+		D85B1A3A24B53D9E007925F1 /* GeneralExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85B1A3924B53D9E007925F1 /* GeneralExtenstions.swift */; };
+		D878391624C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878391524C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift */; };
+		D878391824C64DB50096B051 /* FeeedTableViewController + DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878391724C64DB50096B051 /* FeeedTableViewController + DataSource.swift */; };
+		D878391C24C653870096B051 /* iPhone_SE.png in Resources */ = {isa = PBXBuildFile; fileRef = D878391B24C653870096B051 /* iPhone_SE.png */; };
+		D878392024C654590096B051 /* SupportionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878391F24C654590096B051 /* SupportionModel.swift */; };
+		D878392324C654920096B051 /* ProfileViewController + CollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878392224C654920096B051 /* ProfileViewController + CollectionDataSource.swift */; };
+		D878392524C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878392424C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift */; };
+		D878392A24C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878392924C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift */; };
+		D878392C24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878392B24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift */; };
 		D88D025824B26F03006A01E2 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88D025724B26F03006A01E2 /* FeedCell.swift */; };
+		D8A3057224BA57CA009A2014 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057124BA57CA009A2014 /* HeaderView.swift */; };
+		D8A3057524BB5D35009A2014 /* ProfilePhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057424BB5D35009A2014 /* ProfilePhotosCell.swift */; };
+		D8A3057724BB64FF009A2014 /* CellInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057624BB64FF009A2014 /* CellInterface.swift */; };
+		D8AEA13924C1095D0010D67C /* FollowersFollowsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AEA13824C1095D0010D67C /* FollowersFollowsTableView.swift */; };
+		D8AEA13B24C2410C0010D67C /* FollowsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AEA13A24C2410C0010D67C /* FollowsCell.swift */; };
 		D8C76C1324B277BA0069A777 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C76C1224B277BA0069A777 /* FeedTableViewController.swift */; };
+		D8F4F1F324BA54F700D74CA8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4F1F224BA54F700D74CA8 /* ProfileViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -36,9 +50,23 @@
 		74B79257202B3254006BCB41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74B7925E202B3254006BCB41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74B79263202B3254006BCB41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D85B1A3924B53D9E007925F1 /* Extenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extenstions.swift; sourceTree = "<group>"; };
+		D85B1A3924B53D9E007925F1 /* GeneralExtenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExtenstions.swift; sourceTree = "<group>"; };
+		D878391524C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedTableViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
+		D878391724C64DB50096B051 /* FeeedTableViewController + DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeeedTableViewController + DataSource.swift"; sourceTree = "<group>"; };
+		D878391B24C653870096B051 /* iPhone_SE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone_SE.png; sourceTree = "<group>"; };
+		D878391F24C654590096B051 /* SupportionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SupportionModel.swift; sourceTree = "<group>"; };
+		D878392224C654920096B051 /* ProfileViewController + CollectionDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController + CollectionDataSource.swift"; sourceTree = "<group>"; };
+		D878392424C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController + FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
+		D878392924C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowersFollowsTableView + TableViewDelegate.swift"; sourceTree = "<group>"; };
+		D878392B24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowersFollowsTableView + DataSource.swift"; sourceTree = "<group>"; };
 		D88D025724B26F03006A01E2 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		D8A3057124BA57CA009A2014 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		D8A3057424BB5D35009A2014 /* ProfilePhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotosCell.swift; sourceTree = "<group>"; };
+		D8A3057624BB64FF009A2014 /* CellInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellInterface.swift; sourceTree = "<group>"; };
+		D8AEA13824C1095D0010D67C /* FollowersFollowsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersFollowsTableView.swift; sourceTree = "<group>"; };
+		D8AEA13A24C2410C0010D67C /* FollowsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowsCell.swift; sourceTree = "<group>"; };
 		D8C76C1224B277BA0069A777 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		D8F4F1F224BA54F700D74CA8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,9 +112,12 @@
 			isa = PBXGroup;
 			children = (
 				74B79257202B3254006BCB41 /* AppDelegate.swift */,
-				D88D025724B26F03006A01E2 /* FeedCell.swift */,
-				D8C76C1224B277BA0069A777 /* FeedTableViewController.swift */,
-				D85B1A3924B53D9E007925F1 /* Extenstions.swift */,
+				D85B1A3924B53D9E007925F1 /* GeneralExtenstions.swift */,
+				D8A3057624BB64FF009A2014 /* CellInterface.swift */,
+				D878392624C65A690096B051 /* FollowingsOrFollows */,
+				D878392124C6546F0096B051 /* Model */,
+				D878391D24C653ED0096B051 /* Profile */,
+				D878390F24C6465E0096B051 /* Feed */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -102,9 +133,124 @@
 		74B7927D202B3434006BCB41 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D878391B24C653870096B051 /* iPhone_SE.png */,
 				74B79263202B3254006BCB41 /* Info.plist */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D878390F24C6465E0096B051 /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				D878391124C646770096B051 /* Cells */,
+				D878391024C646670096B051 /* Controllers */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		D878391024C646670096B051 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8C76C1224B277BA0069A777 /* FeedTableViewController.swift */,
+				D878391424C64D230096B051 /* Extensions */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D878391124C646770096B051 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D88D025724B26F03006A01E2 /* FeedCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D878391424C64D230096B051 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D878391524C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift */,
+				D878391724C64DB50096B051 /* FeeedTableViewController + DataSource.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D878391D24C653ED0096B051 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D8F4F1F424BA570800D74CA8 /* Cells */,
+				D8A3057324BA5870009A2014 /* Controllers */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		D878391E24C654240096B051 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D878392224C654920096B051 /* ProfileViewController + CollectionDataSource.swift */,
+				D878392424C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D878392124C6546F0096B051 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D878391F24C654590096B051 /* SupportionModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D878392624C65A690096B051 /* FollowingsOrFollows */ = {
+			isa = PBXGroup;
+			children = (
+				D878392D24C65D4B0096B051 /* Cells */,
+				D878392724C65A7E0096B051 /* Controllers */,
+			);
+			path = FollowingsOrFollows;
+			sourceTree = "<group>";
+		};
+		D878392724C65A7E0096B051 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8AEA13824C1095D0010D67C /* FollowersFollowsTableView.swift */,
+				D878392824C65BBC0096B051 /* Extensions */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D878392824C65BBC0096B051 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D878392924C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift */,
+				D878392B24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D878392D24C65D4B0096B051 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D8AEA13A24C2410C0010D67C /* FollowsCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		D8A3057324BA5870009A2014 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D8F4F1F224BA54F700D74CA8 /* ProfileViewController.swift */,
+				D878391E24C654240096B051 /* Extensions */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D8F4F1F424BA570800D74CA8 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D8A3057124BA57CA009A2014 /* HeaderView.swift */,
+				D8A3057424BB5D35009A2014 /* ProfilePhotosCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +314,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D878391C24C653870096B051 /* iPhone_SE.png in Resources */,
 				74B7925F202B3254006BCB41 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,10 +326,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D85B1A3A24B53D9E007925F1 /* Extenstions.swift in Sources */,
+				D878392A24C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift in Sources */,
+				D8A3057224BA57CA009A2014 /* HeaderView.swift in Sources */,
+				D85B1A3A24B53D9E007925F1 /* GeneralExtenstions.swift in Sources */,
 				D8C76C1324B277BA0069A777 /* FeedTableViewController.swift in Sources */,
+				D878392024C654590096B051 /* SupportionModel.swift in Sources */,
+				D8A3057524BB5D35009A2014 /* ProfilePhotosCell.swift in Sources */,
+				D8AEA13924C1095D0010D67C /* FollowersFollowsTableView.swift in Sources */,
+				D878392C24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift in Sources */,
+				D878391624C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift in Sources */,
+				D8AEA13B24C2410C0010D67C /* FollowsCell.swift in Sources */,
+				D8F4F1F324BA54F700D74CA8 /* ProfileViewController.swift in Sources */,
+				D878391824C64DB50096B051 /* FeeedTableViewController + DataSource.swift in Sources */,
 				74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */,
+				D878392324C654920096B051 /* ProfileViewController + CollectionDataSource.swift in Sources */,
+				D878392524C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift in Sources */,
 				D88D025824B26F03006A01E2 /* FeedCell.swift in Sources */,
+				D8A3057724BB64FF009A2014 /* CellInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -7,7 +7,11 @@
 
 import UIKit
 import  DataProvider
-public var scale = UIScreen.main.scale
+var usersData = DataProviders.shared.usersDataProvider
+var postsData = DataProviders.shared.postsDataProvider
+
+
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
   
@@ -20,13 +24,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let profileImage = UIImage(named: "profile")
     let tabBarController = UITabBarController()
     let feedViewController = FeedTableViewController()
-    let profileViewController = UICollectionViewController(collectionViewLayout: UICollectionViewFlowLayout())
+    let profileViewController = ProfileViewController()
+    profileViewController.profile =  DataProviders.shared.usersDataProvider.currentUser()
     let feedNavigationController = UINavigationController()
     let profileNavigationController = UINavigationController()
     
     window = UIWindow(frame: UIScreen.main.bounds)
+    
     feedNavigationController.viewControllers = [feedViewController]
     profileNavigationController.viewControllers = [profileViewController]
+    
     tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
     tabBarController.tabBar.unselectedItemTintColor = .lightGray
     feedNavigationController.tabBarItem = UITabBarItem(title: "Feed", image: feedImage, selectedImage: feedImage)
