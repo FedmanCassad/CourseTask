@@ -11,5 +11,5 @@ import DataProvider
 
 protocol CellDelegate {
   func goToSelectedProfile(user: User)
-  func goToProfilesList(users: [User], _ meaning: DestinationMeaning)
+  func goToProfilesList(users: [User], user: User, _ meaning: DestinationMeaning)
 }

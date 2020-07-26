@@ -11,21 +11,7 @@ import DataProvider
 class HeaderView: UICollectionReusableView {
   var user: User!
   var delegate: CellDelegate?
-  
-  var doubleTapRecognizer: UITapGestureRecognizer {
-    let tchRecg = UITapGestureRecognizer(target: self, action: #selector(userSomeHowTapped(sender:)))
-    tchRecg.numberOfTapsRequired = 2
-    tchRecg.numberOfTouchesRequired = 1
-    return tchRecg
-  }
- 
-  var singleTapRecognizer: UITapGestureRecognizer {
-    let tchRecg = UITapGestureRecognizer(target: self, action: #selector(userSomeHowTapped(sender:)))
-    tchRecg.numberOfTapsRequired = 1
-    tchRecg.numberOfTouchesRequired = 1
-    return tchRecg
-  }
-  
+
   lazy var avatar: UIImageView = {
     let imgView = UIImageView()
     return imgView
@@ -43,7 +29,8 @@ class HeaderView: UICollectionReusableView {
     let lbl = UILabel()
     lbl.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
     lbl.textColor = .black
-    lbl.addGestureRecognizer(singleTapRecognizer)
+      let tchRcg = UITapGestureRecognizer(target: self, action: #selector(goToFollowersListView))
+    lbl.addGestureRecognizer(tchRcg)
     lbl.gestureRecognizers?[0].name = "followersTapped"
     lbl.isUserInteractionEnabled = true
     return lbl
@@ -53,7 +40,8 @@ class HeaderView: UICollectionReusableView {
     let lbl = UILabel()
     lbl.font = UIFont.systemFont(ofSize: 14, weight: .semibold)
     lbl.textColor = .black
-     lbl.addGestureRecognizer(singleTapRecognizer)
+    let tchRcg = UITapGestureRecognizer(target: self, action: #selector(goToFollowsListView))
+     lbl.addGestureRecognizer(tchRcg)
      lbl.gestureRecognizers?[0].name = "followingsTapped"
     lbl.isUserInteractionEnabled = true
     return lbl
@@ -92,31 +80,18 @@ class HeaderView: UICollectionReusableView {
   }
   
   //MARK: - Actions
-  @objc func userSomeHowTapped(sender: UITapGestureRecognizer) {
-      switch sender.name {
-        case "followingsTapped":
-          goToListView(.follows)
-        case "followersTapped":
-          goToListView(.followers)
-        default:
-          return
-        
-    }
-    }
+
     
-  func goToListView(_ target: DestinationMeaning) {
-    switch target {
-      case .followers:
-        guard let users = usersData.usersFollowingUser(with: user.id) else {return}
-        delegate?.goToProfilesList(users: users, target)
-      case .follows:
-      guard let users =  usersData.usersFollowedByUser(with: user.id) else {return}
-      delegate?.goToProfilesList(users: users, target)
+ @objc func goToFollowersListView() {
+   
+        guard let users = DataProviders.shared.usersDataProvider.usersFollowingUser(with: user.id) else {return}
+  delegate?.goToProfilesList(users: users, user: user, .followers)
     }
       
+  @objc func goToFollowsListView() {
+         guard let users =  DataProviders.shared.usersDataProvider.usersFollowedByUser(with: user.id) else {return}
+    delegate?.goToProfilesList(users: users, user: user,  .follows)
       
-      
-   
     }
     
     

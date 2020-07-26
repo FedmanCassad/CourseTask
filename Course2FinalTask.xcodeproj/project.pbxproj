@@ -20,6 +20,8 @@
 		D878392524C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878392424C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift */; };
 		D878392A24C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878392924C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift */; };
 		D878392C24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878392B24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift */; };
+		D878392F24CCD81A0096B051 /* Замечания.strings in Resources */ = {isa = PBXBuildFile; fileRef = D878392E24CCD81A0096B051 /* Замечания.strings */; };
+		D878393224CCD9A00096B051 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878393124CCD9A00096B051 /* TabBarController.swift */; };
 		D88D025824B26F03006A01E2 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88D025724B26F03006A01E2 /* FeedCell.swift */; };
 		D8A3057224BA57CA009A2014 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057124BA57CA009A2014 /* HeaderView.swift */; };
 		D8A3057524BB5D35009A2014 /* ProfilePhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057424BB5D35009A2014 /* ProfilePhotosCell.swift */; };
@@ -59,6 +61,8 @@
 		D878392424C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController + FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
 		D878392924C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowersFollowsTableView + TableViewDelegate.swift"; sourceTree = "<group>"; };
 		D878392B24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowersFollowsTableView + DataSource.swift"; sourceTree = "<group>"; };
+		D878392E24CCD81A0096B051 /* Замечания.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "Замечания.strings"; sourceTree = "<group>"; };
+		D878393124CCD9A00096B051 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D88D025724B26F03006A01E2 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		D8A3057124BA57CA009A2014 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D8A3057424BB5D35009A2014 /* ProfilePhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotosCell.swift; sourceTree = "<group>"; };
@@ -111,6 +115,7 @@
 		74B7927B202B3427006BCB41 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				D878393024CCD98E0096B051 /* TabBar */,
 				74B79257202B3254006BCB41 /* AppDelegate.swift */,
 				D85B1A3924B53D9E007925F1 /* GeneralExtenstions.swift */,
 				D8A3057624BB64FF009A2014 /* CellInterface.swift */,
@@ -135,6 +140,7 @@
 			children = (
 				D878391B24C653870096B051 /* iPhone_SE.png */,
 				74B79263202B3254006BCB41 /* Info.plist */,
+				D878392E24CCD81A0096B051 /* Замечания.strings */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -235,6 +241,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		D878393024CCD98E0096B051 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				D878393124CCD9A00096B051 /* TabBarController.swift */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
 		D8A3057324BA5870009A2014 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -315,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D878391C24C653870096B051 /* iPhone_SE.png in Resources */,
+				D878392F24CCD81A0096B051 /* Замечания.strings in Resources */,
 				74B7925F202B3254006BCB41 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +344,7 @@
 				D878392A24C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift in Sources */,
 				D8A3057224BA57CA009A2014 /* HeaderView.swift in Sources */,
 				D85B1A3A24B53D9E007925F1 /* GeneralExtenstions.swift in Sources */,
+				D878393224CCD9A00096B051 /* TabBarController.swift in Sources */,
 				D8C76C1324B277BA0069A777 /* FeedTableViewController.swift in Sources */,
 				D878392024C654590096B051 /* SupportionModel.swift in Sources */,
 				D8A3057524BB5D35009A2014 /* ProfilePhotosCell.swift in Sources */,

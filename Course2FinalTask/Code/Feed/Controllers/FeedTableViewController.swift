@@ -10,7 +10,7 @@ import UIKit
 import DataProvider
 class FeedTableViewController: UIViewController {
 
-  let feed = postsData.feed()
+  let feed = DataProviders.shared.postsDataProvider.feed()
   let tableView = UITableView()
 
   //MARK: - Lifecycle

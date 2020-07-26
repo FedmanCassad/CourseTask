@@ -10,23 +10,13 @@ import UIKit
 import DataProvider
 
 class FollowersFollowsTableViewController: UIViewController {
-
-  
-  
- 
-  
   
   var listOfUsers = Array<User>()
   var tableView = UITableView()
-
-//
-
-//
-//
-
   
   override func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
+    
     if let indexPath = tableView.indexPathForSelectedRow {
       print(indexPath.row)
       tableView.deselectRow(at: indexPath, animated: true)
@@ -34,19 +24,19 @@ class FollowersFollowsTableViewController: UIViewController {
   }
   
   //MARK: - Lifecycle
-  
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.translatesAutoresizingMaskIntoConstraints = false
     tableView.frame = UIScreen.main.bounds
     tableView.register(FollowsCell.self, forCellReuseIdentifier: "FollowsCell")
+    
     view.addSubview(tableView)
+    
     view.backgroundColor = .white
+    
     tableView.delegate = self
     tableView.dataSource = self
     tableView.register(FollowsCell.self, forCellReuseIdentifier: "FollowsCell")
-    
   }
-  
   
 }

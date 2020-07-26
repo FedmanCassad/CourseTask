@@ -214,17 +214,18 @@ class FeedCell: UITableViewCell {
   }
   
   func goToListView() {
-    guard let userIds =  postsData.usersLikedPost(with: post.id) else {return}
+    guard let userIds =  DataProviders.shared.postsDataProvider.usersLikedPost(with: post.id) else {return}
     var users = Array<User>()
     userIds.forEach({userID in
-      guard let user = usersData.user(with: userID) else {return}
+      guard let user = DataProviders.shared.usersDataProvider.user(with: userID) else {return}
       users.append(user)
     })
-    delegate?.goToProfilesList(users: users, .follows)
+    if let user = DataProviders.shared.usersDataProvider.user(with: post.author) {
+      delegate?.goToProfilesList(users: users, user: user, .follows)}
   }
   
   func goToProfile() {
-    let user = usersData.user(with: post.author)
+    let user = DataProviders.shared.usersDataProvider.user(with: post.author)
     delegate?.goToSelectedProfile(user: user!)
   }
   
@@ -232,15 +233,15 @@ class FeedCell: UITableViewCell {
     if !likeButton.isSelected {
       likeButton.isSelected = true
       likeButton.tintColor = .systemBlue
-      post.currentUserLikesThisPost = postsData.likePost(with: post.id)
-      post = postsData.post(with: post.id)
+      post.currentUserLikesThisPost = DataProviders.shared.postsDataProvider.likePost(with: post.id)
+      post = DataProviders.shared.postsDataProvider.post(with: post.id)
       likesLabel.text = "Likes: \(post.likedByCount)"
       likesLabel.sizeToFit()
     } else {
       likeButton.isSelected = false
       likeButton.tintColor = .lightGray
-      post.currentUserLikesThisPost = !postsData.unlikePost(with: post.id)
-      post = postsData.post(with: post.id)
+      post.currentUserLikesThisPost = !DataProviders.shared.postsDataProvider.unlikePost(with: post.id)
+      post = DataProviders.shared.postsDataProvider.post(with: post.id)
       likesLabel.text = "Likes: \(post.likedByCount)"
       likesLabel.sizeToFit()
     }
