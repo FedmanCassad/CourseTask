@@ -56,23 +56,22 @@ extension UIViewController: CellDelegate {
   func goToSelectedProfile(user: User) {
     let destinationVC = ProfileViewController()
     destinationVC.profile = user
+    
     guard let tabBarController = tabBarController else {return}
+    
     tabBarController.selectedIndex = 1
+    
     guard let navigationController = tabBarController.selectedViewController as? UINavigationController else {return}
     guard !navigationController.viewControllers.isEmpty else {
       navigationController.pushViewController(destinationVC, animated: true)
       return
     }
+    
     if navigationController.viewControllers[0] is ProfileViewController && navigationController.viewControllers.count == 1 {
       navigationController.viewControllers.removeLast()
       navigationController.pushViewController(destinationVC, animated: true)}
     else {
       navigationController.pushViewController(destinationVC, animated: true)}
   }
-  
-  
-  
-  
-  
-  
+
 }
