@@ -15,14 +15,15 @@ class ProfileViewController: UIViewController {
   
   
   var collectionView: UICollectionView!
-  var profile: User?
+  var profile: User? 
   
   //MARK: - Lyfecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     let layout = UICollectionViewFlowLayout()
     collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-    guard let profile = profile else {return}
+    guard let profile = profile else
+    {return}
     navigationItem.title = profile.username
     view.addSubview(collectionView)
     collectionView.backgroundColor = .white

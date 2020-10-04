@@ -37,9 +37,9 @@ extension UIViewController: CellDelegate {
     }
       
     else if navigationController.viewControllers.count == 1 {
-        let profileController = ProfileViewController()
-             profileController.profile = user
-        navigationController.viewControllers = [profileController]
+      let profileController = ProfileViewController()
+      profileController.profile = user
+      navigationController.viewControllers = [profileController]
       
       
       navigationController.pushViewController(destinationVC, animated: true)
@@ -73,5 +73,19 @@ extension UIViewController: CellDelegate {
     else {
       navigationController.pushViewController(destinationVC, animated: true)}
   }
+  // Здесь функция для создания блокирующей интерфейс вьюхи.
+  func lockTheView() {
+    let lockView = ActivityIndicator()
+    view.addSubview(lockView)
+    
+  }
+  
+  func unlockView() {
+    view.subviews.forEach {
+      if $0 is ActivityIndicator {
+        $0.removeFromSuperview()
+      }
 
+    }
+  }
 }

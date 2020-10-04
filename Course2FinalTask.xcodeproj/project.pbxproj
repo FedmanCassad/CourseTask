@@ -11,7 +11,7 @@
 		7484B05520441FD000BDE1A6 /* DataProvider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7484B05320441FD000BDE1A6 /* DataProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B79257202B3254006BCB41 /* AppDelegate.swift */; };
 		74B7925F202B3254006BCB41 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B7925E202B3254006BCB41 /* Assets.xcassets */; };
-		D85B1A3A24B53D9E007925F1 /* GeneralExtenstions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85B1A3924B53D9E007925F1 /* GeneralExtenstions.swift */; };
+		D85B1A3A24B53D9E007925F1 /* UIViewController + CellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85B1A3924B53D9E007925F1 /* UIViewController + CellDelegate.swift */; };
 		D878391624C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878391524C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift */; };
 		D878391824C64DB50096B051 /* FeeedTableViewController + DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878391724C64DB50096B051 /* FeeedTableViewController + DataSource.swift */; };
 		D878391C24C653870096B051 /* iPhone_SE.png in Resources */ = {isa = PBXBuildFile; fileRef = D878391B24C653870096B051 /* iPhone_SE.png */; };
@@ -23,6 +23,7 @@
 		D878392F24CCD81A0096B051 /* Замечания.strings in Resources */ = {isa = PBXBuildFile; fileRef = D878392E24CCD81A0096B051 /* Замечания.strings */; };
 		D878393224CCD9A00096B051 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878393124CCD9A00096B051 /* TabBarController.swift */; };
 		D88D025824B26F03006A01E2 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88D025724B26F03006A01E2 /* FeedCell.swift */; };
+		D893F89E2529170A00A2378A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D893F89D2529170A00A2378A /* ActivityIndicator.swift */; };
 		D8A3057224BA57CA009A2014 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057124BA57CA009A2014 /* HeaderView.swift */; };
 		D8A3057524BB5D35009A2014 /* ProfilePhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057424BB5D35009A2014 /* ProfilePhotosCell.swift */; };
 		D8A3057724BB64FF009A2014 /* CellInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057624BB64FF009A2014 /* CellInterface.swift */; };
@@ -52,7 +53,7 @@
 		74B79257202B3254006BCB41 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74B7925E202B3254006BCB41 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		74B79263202B3254006BCB41 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D85B1A3924B53D9E007925F1 /* GeneralExtenstions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralExtenstions.swift; sourceTree = "<group>"; };
+		D85B1A3924B53D9E007925F1 /* UIViewController + CellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + CellDelegate.swift"; sourceTree = "<group>"; };
 		D878391524C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedTableViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		D878391724C64DB50096B051 /* FeeedTableViewController + DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeeedTableViewController + DataSource.swift"; sourceTree = "<group>"; };
 		D878391B24C653870096B051 /* iPhone_SE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone_SE.png; sourceTree = "<group>"; };
@@ -64,6 +65,7 @@
 		D878392E24CCD81A0096B051 /* Замечания.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "Замечания.strings"; sourceTree = "<group>"; };
 		D878393124CCD9A00096B051 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D88D025724B26F03006A01E2 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		D893F89D2529170A00A2378A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		D8A3057124BA57CA009A2014 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D8A3057424BB5D35009A2014 /* ProfilePhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotosCell.swift; sourceTree = "<group>"; };
 		D8A3057624BB64FF009A2014 /* CellInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellInterface.swift; sourceTree = "<group>"; };
@@ -115,14 +117,15 @@
 		74B7927B202B3427006BCB41 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				D893F89C252913E400A2378A /* GeneralExtensions */,
+				D893F89A252912D300A2378A /* ActivityIndicator */,
+				D878392124C6546F0096B051 /* Model */,
 				D878393024CCD98E0096B051 /* TabBar */,
 				74B79257202B3254006BCB41 /* AppDelegate.swift */,
-				D85B1A3924B53D9E007925F1 /* GeneralExtenstions.swift */,
 				D8A3057624BB64FF009A2014 /* CellInterface.swift */,
-				D878392624C65A690096B051 /* FollowingsOrFollows */,
-				D878392124C6546F0096B051 /* Model */,
 				D878391D24C653ED0096B051 /* Profile */,
 				D878390F24C6465E0096B051 /* Feed */,
+				D878392624C65A690096B051 /* FollowingsOrFollows */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 		D878390F24C6465E0096B051 /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				D878391424C64D230096B051 /* Extensions */,
 				D878391124C646770096B051 /* Cells */,
 				D878391024C646670096B051 /* Controllers */,
 			);
@@ -158,7 +162,6 @@
 			isa = PBXGroup;
 			children = (
 				D8C76C1224B277BA0069A777 /* FeedTableViewController.swift */,
-				D878391424C64D230096B051 /* Extensions */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -183,6 +186,7 @@
 		D878391D24C653ED0096B051 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				D878391E24C654240096B051 /* Extensions */,
 				D8F4F1F424BA570800D74CA8 /* Cells */,
 				D8A3057324BA5870009A2014 /* Controllers */,
 			);
@@ -209,6 +213,7 @@
 		D878392624C65A690096B051 /* FollowingsOrFollows */ = {
 			isa = PBXGroup;
 			children = (
+				D878392824C65BBC0096B051 /* Extensions */,
 				D878392D24C65D4B0096B051 /* Cells */,
 				D878392724C65A7E0096B051 /* Controllers */,
 			);
@@ -219,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				D8AEA13824C1095D0010D67C /* FollowersFollowsTableView.swift */,
-				D878392824C65BBC0096B051 /* Extensions */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -249,11 +253,34 @@
 			path = TabBar;
 			sourceTree = "<group>";
 		};
+		D893F89A252912D300A2378A /* ActivityIndicator */ = {
+			isa = PBXGroup;
+			children = (
+				D893F89B252912E800A2378A /* Controllers */,
+			);
+			path = ActivityIndicator;
+			sourceTree = "<group>";
+		};
+		D893F89B252912E800A2378A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D893F89D2529170A00A2378A /* ActivityIndicator.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D893F89C252913E400A2378A /* GeneralExtensions */ = {
+			isa = PBXGroup;
+			children = (
+				D85B1A3924B53D9E007925F1 /* UIViewController + CellDelegate.swift */,
+			);
+			path = GeneralExtensions;
+			sourceTree = "<group>";
+		};
 		D8A3057324BA5870009A2014 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
 				D8F4F1F224BA54F700D74CA8 /* ProfileViewController.swift */,
-				D878391E24C654240096B051 /* Extensions */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -343,7 +370,7 @@
 			files = (
 				D878392A24C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift in Sources */,
 				D8A3057224BA57CA009A2014 /* HeaderView.swift in Sources */,
-				D85B1A3A24B53D9E007925F1 /* GeneralExtenstions.swift in Sources */,
+				D85B1A3A24B53D9E007925F1 /* UIViewController + CellDelegate.swift in Sources */,
 				D878393224CCD9A00096B051 /* TabBarController.swift in Sources */,
 				D8C76C1324B277BA0069A777 /* FeedTableViewController.swift in Sources */,
 				D878392024C654590096B051 /* SupportionModel.swift in Sources */,
@@ -356,6 +383,7 @@
 				D878391824C64DB50096B051 /* FeeedTableViewController + DataSource.swift in Sources */,
 				74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */,
 				D878392324C654920096B051 /* ProfileViewController + CollectionDataSource.swift in Sources */,
+				D893F89E2529170A00A2378A /* ActivityIndicator.swift in Sources */,
 				D878392524C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift in Sources */,
 				D88D025824B26F03006A01E2 /* FeedCell.swift in Sources */,
 				D8A3057724BB64FF009A2014 /* CellInterface.swift in Sources */,

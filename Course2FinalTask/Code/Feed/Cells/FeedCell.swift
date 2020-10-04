@@ -197,7 +197,7 @@ class FeedCell: UITableViewCell {
       case "listOfLikes":
         goToListView()
       default:
-       return
+        return
     }
   }
   
@@ -214,38 +214,71 @@ class FeedCell: UITableViewCell {
   }
   
   func goToListView() {
-    guard let userIds =  DataProviders.shared.postsDataProvider.usersLikedPost(with: post.id) else {return}
-    var users = Array<User>()
-    userIds.forEach({userID in
-      guard let user = DataProviders.shared.usersDataProvider.user(with: userID) else {return}
-      users.append(user)
-    })
-    if let user = DataProviders.shared.usersDataProvider.user(with: post.author) {
-      delegate?.goToProfilesList(users: users, user: user, .follows)}
+    
+    DataProviders.shared.postsDataProvider.usersLikedPost(with: post.id, queue: .global(qos: .userInteractive)){[weak self] optUIDs in
+      guard let self = self, let userIds = optUIDs else {return}
+      var users = Array<User>()
+      
+      userIds.forEach {userID in
+        DataProviders.shared.usersDataProvider.user(with: userID.id, queue: .global(qos: .userInteractive)){user in
+          guard let user = user  else {return}
+          users.append(user)
+        }
+      }
+      DataProviders.shared.usersDataProvider.user(with: self.post.author, queue: .global(qos: .userInteractive)){user in
+        if let user = user {
+          DispatchQueue.main.async {
+            self.delegate?.goToProfilesList(users: users, user: user, .follows)
+          }
+        }
+      }
+    }
   }
   
   func goToProfile() {
-    let user = DataProviders.shared.usersDataProvider.user(with: post.author)
-    delegate?.goToSelectedProfile(user: user!)
+    
+    DataProviders.shared.usersDataProvider.user(with: post.author, queue: .global(qos: .userInteractive )){[weak self] user in
+      guard let self = self, let user = user else {return}
+      self.delegate?.goToSelectedProfile(user: user)
+    }
+    
   }
   
   func likeTapped() {
     if !likeButton.isSelected {
       likeButton.isSelected = true
       likeButton.tintColor = .systemBlue
-      post.currentUserLikesThisPost = DataProviders.shared.postsDataProvider.likePost(with: post.id)
-      post = DataProviders.shared.postsDataProvider.post(with: post.id)
-      likesLabel.text = "Likes: \(post.likedByCount)"
-      likesLabel.sizeToFit()
+      let group = DispatchGroup()
+      group.enter()
+      DataProviders.shared.postsDataProvider.likePost(with: post.id, queue: .global(qos: .userInteractive)){[weak self] post in
+        if let self = self, let receivedPost = post {
+          self.post = receivedPost
+          self.post.currentUserLikesThisPost = true
+          group.leave()
+          group.wait()
+          DispatchQueue.main.async {
+            self.likesLabel.text = "Likes: \(self.post.likedByCount)"
+            self.likesLabel.sizeToFit()
+          }
+        }
+      }
     } else {
       likeButton.isSelected = false
       likeButton.tintColor = .lightGray
-      post.currentUserLikesThisPost = !DataProviders.shared.postsDataProvider.unlikePost(with: post.id)
-      post = DataProviders.shared.postsDataProvider.post(with: post.id)
-      likesLabel.text = "Likes: \(post.likedByCount)"
-      likesLabel.sizeToFit()
+      DataProviders.shared.postsDataProvider.unlikePost(with: post.id, queue: .global(qos: .userInteractive)) {[weak self] receivedPost in
+        if let self = self, let updatePost = receivedPost {
+          self.post = updatePost
+          self.post.currentUserLikesThisPost = false
+          DispatchQueue.main.async {
+            self.likesLabel.text = "Likes: \(self.post.likedByCount)"
+            self.likesLabel.sizeToFit()
+          }
+        }
+      }
     }
   }
   
 }
+
+
 

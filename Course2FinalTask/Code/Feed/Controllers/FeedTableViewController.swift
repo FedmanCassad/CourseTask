@@ -9,13 +9,25 @@
 import UIKit
 import DataProvider
 class FeedTableViewController: UIViewController {
-
-  let feed = DataProviders.shared.postsDataProvider.feed()
+  var feed: [DataProvider.Post] = []
+  
   let tableView = UITableView()
-
+  
+  
   //MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    let group = DispatchGroup()
+    group.enter()
+   
+    DataProviders.shared.postsDataProvider.feed(queue: .global(qos: .userInteractive)){[weak self] posts in
+      guard let posts = posts else {
+        print("Ошибка в контроллере ленты. Посты не пришли")
+        return}
+      self?.feed = posts
+      group.leave()
+    }
+    group.wait()
     tableView.translatesAutoresizingMaskIntoConstraints = false
     tableView.frame = UIScreen.main.bounds
     view.addSubview(tableView)

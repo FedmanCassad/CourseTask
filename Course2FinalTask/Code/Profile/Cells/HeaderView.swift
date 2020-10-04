@@ -83,14 +83,20 @@ class HeaderView: UICollectionReusableView {
 
     
  @objc func goToFollowersListView() {
-   
-        guard let users = DataProviders.shared.usersDataProvider.usersFollowingUser(with: user.id) else {return}
-  delegate?.goToProfilesList(users: users, user: user, .followers)
-    }
+  DataProviders.shared.usersDataProvider.usersFollowingUser(with: user.id, queue: .global(qos: .userInitiated)) {[weak self] users in
+    guard let users = users, let self = self else {return}
+    self.delegate?.goToProfilesList(users: users, user: self.user, .followers)
+    
+  }
+  }
+        
       
   @objc func goToFollowsListView() {
-         guard let users =  DataProviders.shared.usersDataProvider.usersFollowedByUser(with: user.id) else {return}
-    delegate?.goToProfilesList(users: users, user: user,  .follows)
+    DataProviders.shared.usersDataProvider.usersFollowedByUser(with: user.id, queue: .global(qos: .userInitiated)) {[weak self] users in
+    guard let users = users, let self = self else {return}
+      self.delegate?.goToProfilesList(users: users, user: self.user, .follows)
+    }
+        
       
     }
     
