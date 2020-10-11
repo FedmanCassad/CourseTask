@@ -8,43 +8,38 @@
 
 import UIKit
 import DataProvider
+
 extension ProfileViewController: UICollectionViewDataSource {
+  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    guard let profile = profile else {return 1}
-    var posts = Array<Post>()
-    
-    DataProviders.shared.postsDataProvider.findPosts(by: profile.id, queue: .global(qos: .userInteractive), handler: {optPosts in
+    let group = DispatchGroup()
+    group.enter()
+    DataProviders.shared.postsDataProvider.findPosts(by: profile.id, queue: .global(qos: .background), handler: {[weak self] optPosts in
+      guard let self = self else {return}
       guard let recievedPosts = optPosts else {
-        posts = Array<Post>()
         return}
-      posts = recievedPosts
-      
+      self.posts = recievedPosts
+      group.leave()
     })
+    group.wait()
+    if let posts = self.posts {
+      print("Вернулся \(posts.count)")
+       return posts.count
+    }
+    else {
+      print("Сработал 0")
+      return 0
+    }
     
-    
-    
-    
-    
-    return posts.count
   }
+
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProfilePhotosCell", for: indexPath) as! ProfilePhotosCell
-    guard let profile = profile else {return cell}
-    let dispatchGroup = DispatchGroup()
-//    dispatchGroup.enter()
-   
-    DataProviders.shared.postsDataProvider.findPosts(by: profile.id, queue: .global(qos: .userInteractive)) {optPosts in
-      if let recievedPosts = optPosts {
-       
-        let post = recievedPosts[indexPath.item]
-        DispatchQueue.main.async {
-              cell.configure(post: post)
-//          dispatchGroup.leave()
-        }
-      }
+    if let posts = posts {
+      cell.configure(post: posts[indexPath.item])
     }
-//    dispatchGroup.wait()
+    
     return cell
   }
   
@@ -53,7 +48,6 @@ extension ProfileViewController: UICollectionViewDataSource {
       
       let cell = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "HeaderView", for: indexPath) as! HeaderView
       
-      guard let profile = self.profile else {return cell}
       cell.configure(user: profile)
       cell.delegate = self
       return cell

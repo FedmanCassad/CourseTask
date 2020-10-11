@@ -20,16 +20,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func application(_ application: UIApplication,
                    didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     initiateWindow()
+    
     return true
   }
   
   private func initiateWindow() {
+    
     let feedImage = UIImage(named: "feed")
     let profileImage = UIImage(named: "profile")
-    
     let feedNavigationController = UINavigationController()
     let profileNavigationController = UINavigationController()
-    
     let feedViewController = FeedTableViewController()
     
     feedNavigationController.viewControllers = [feedViewController]
@@ -38,9 +38,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     tabBarController.viewControllers = [feedNavigationController, profileNavigationController]
     tabBarController.tabBar.unselectedItemTintColor = .lightGray
-    
     window = UIWindow(frame: UIScreen.main.bounds)
-    window?.rootViewController = tabBarController
+    window?.rootViewController = self.tabBarController
     window?.makeKeyAndVisible()
   }
   

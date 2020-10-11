@@ -85,8 +85,9 @@ class HeaderView: UICollectionReusableView {
  @objc func goToFollowersListView() {
   DataProviders.shared.usersDataProvider.usersFollowingUser(with: user.id, queue: .global(qos: .userInitiated)) {[weak self] users in
     guard let users = users, let self = self else {return}
+   DispatchQueue.main.async {
     self.delegate?.goToProfilesList(users: users, user: self.user, .followers)
-    
+    }
   }
   }
         
@@ -94,7 +95,9 @@ class HeaderView: UICollectionReusableView {
   @objc func goToFollowsListView() {
     DataProviders.shared.usersDataProvider.usersFollowedByUser(with: user.id, queue: .global(qos: .userInitiated)) {[weak self] users in
     guard let users = users, let self = self else {return}
+      DispatchQueue.main.async {
       self.delegate?.goToProfilesList(users: users, user: self.user, .follows)
+      }
     }
         
       
@@ -102,7 +105,7 @@ class HeaderView: UICollectionReusableView {
     
     
     
-    
+
   }
 
 

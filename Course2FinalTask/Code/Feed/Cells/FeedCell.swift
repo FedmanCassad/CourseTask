@@ -214,7 +214,8 @@ class FeedCell: UITableViewCell {
   }
   
   func goToListView() {
-    
+   UIApplication.shared.keyWindow?.lockTheView()
+    print("Лок видимо не работает")
     DataProviders.shared.postsDataProvider.usersLikedPost(with: post.id, queue: .global(qos: .userInteractive)){[weak self] optUIDs in
       guard let self = self, let userIds = optUIDs else {return}
       var users = Array<User>()
@@ -236,10 +237,16 @@ class FeedCell: UITableViewCell {
   }
   
   func goToProfile() {
-    
+    UIApplication.shared.keyWindow?.lockTheView()
     DataProviders.shared.usersDataProvider.user(with: post.author, queue: .global(qos: .userInteractive )){[weak self] user in
+      print(Thread.current)
       guard let self = self, let user = user else {return}
-      self.delegate?.goToSelectedProfile(user: user)
+      DispatchQueue.main.async {[weak self] in
+        print(Thread.current)
+        guard let self = self else {return}
+              self.delegate?.goToSelectedProfile(user: user)
+        UIApplication.shared.keyWindow?.unlockView()
+      }
     }
     
   }

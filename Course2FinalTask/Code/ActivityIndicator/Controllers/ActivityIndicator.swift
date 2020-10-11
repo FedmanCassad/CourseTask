@@ -9,11 +9,12 @@
 import UIKit
 
 class ActivityIndicator: UIView {
-  var indicator: UIActivityIndicatorView!
+
   
-  override init(frame: CGRect) {
+  override init(frame: CGRect = UIScreen.main.bounds) {
     super.init(frame: UIScreen.main.bounds)
     backgroundColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.7)
+    
     addLoader()
   }
   
@@ -23,7 +24,7 @@ class ActivityIndicator: UIView {
   }
   
   private func addLoader() {
-    let activityIndicator = UIActivityIndicatorView()
+    let activityIndicator = UIActivityIndicatorView(style: .white)
     activityIndicator.center = center
     addSubview(activityIndicator)
     activityIndicator.startAnimating()

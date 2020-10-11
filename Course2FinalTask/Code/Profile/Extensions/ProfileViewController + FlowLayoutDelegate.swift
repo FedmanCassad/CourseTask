@@ -21,7 +21,7 @@ extension ProfileViewController: UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
     let cell = HeaderView()
-    cell.configure(user: profile!)
+    cell.configure(user: profile)
     return CGSize(width: UIScreen.main.bounds.width, height: cell.avatar.frame.maxY + 8)
   }
   

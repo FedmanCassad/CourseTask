@@ -10,6 +10,7 @@ import UIKit
 import DataProvider
 
 
+
 extension UIViewController: CellDelegate {
   
   
@@ -27,18 +28,17 @@ extension UIViewController: CellDelegate {
       case .follows:
         destinationVC.title = "Follows"
     }
+    
     if navigationController.viewControllers.isEmpty {
       
-      let profileController = ProfileViewController()
+      let profileController = ProfileViewController(user: user)
       
-      profileController.profile = user
       navigationController.viewControllers = [profileController]
       navigationController.pushViewController(destinationVC, animated: true)
     }
       
     else if navigationController.viewControllers.count == 1 {
-      let profileController = ProfileViewController()
-      profileController.profile = user
+      let profileController = ProfileViewController(user: user)
       navigationController.viewControllers = [profileController]
       
       
@@ -46,46 +46,42 @@ extension UIViewController: CellDelegate {
     }
       
     else {
-      let profileController = ProfileViewController()
-      profileController.profile = user
+      let profileController = ProfileViewController(user: user)
       navigationController.viewControllers.append(profileController)
       navigationController.pushViewController(destinationVC, animated: true)
     }
+    
   }
   
   func goToSelectedProfile(user: User) {
-    let destinationVC = ProfileViewController()
-    destinationVC.profile = user
-    
-    guard let tabBarController = tabBarController else {return}
-    
-    tabBarController.selectedIndex = 1
-    
-    guard let navigationController = tabBarController.selectedViewController as? UINavigationController else {return}
-    guard !navigationController.viewControllers.isEmpty else {
-      navigationController.pushViewController(destinationVC, animated: true)
-      return
+    print(Thread.current)
+    _ = ProfileViewController(user: user){[weak self] controller in
+      guard let self = self else
+      {return}
+      guard let tabBarController = self.tabBarController else
+      {return}
+      tabBarController.selectedIndex = 1
+      guard let navigationController = tabBarController.selectedViewController as? UINavigationController else
+      {return}
+      print(navigationController.viewControllers.count)
+      guard !navigationController.viewControllers.isEmpty else {
+        print("Сработал гард если нав контроллер ПУСТОЙ")
+        navigationController.pushViewController(controller, animated: true)
+        return
+      }
+      
+      if navigationController.viewControllers[0] is ProfileViewController {
+        print("Сработал гард где котроллер не пустой и первый котроллер - профиль")
+        navigationController.viewControllers.removeLast()
+        navigationController.pushViewController(controller, animated: false)
+      }
+      else {
+        print("Сработал гард где котроллер не пустой и первый котроллер - не профиль")
+        navigationController.pushViewController(controller, animated: true)
+      }
+      
     }
-    
-    if navigationController.viewControllers[0] is ProfileViewController && navigationController.viewControllers.count == 1 {
-      navigationController.viewControllers.removeLast()
-      navigationController.pushViewController(destinationVC, animated: true)}
-    else {
-      navigationController.pushViewController(destinationVC, animated: true)}
-  }
-  // Здесь функция для создания блокирующей интерфейс вьюхи.
-  func lockTheView() {
-    let lockView = ActivityIndicator()
-    view.addSubview(lockView)
-    
+    UIApplication.shared.keyWindow?.unlockView()
   }
   
-  func unlockView() {
-    view.subviews.forEach {
-      if $0 is ActivityIndicator {
-        $0.removeFromSuperview()
-      }
-
-    }
-  }
 }
