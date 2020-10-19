@@ -13,18 +13,17 @@ class FeedTableViewController: UIViewController {
   
   let tableView = UITableView()
   
-  
   //MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
     let group = DispatchGroup()
     group.enter()
-   
     DataProviders.shared.postsDataProvider.feed(queue: .global(qos: .userInteractive)){[weak self] posts in
+      guard let self = self else {return}
       guard let posts = posts else {
-        print("Ошибка в контроллере ленты. Посты не пришли")
+        self.alert(completion: nil)
         return}
-      self?.feed = posts
+      self.feed = posts
       group.leave()
     }
     group.wait()

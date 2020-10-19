@@ -11,17 +11,17 @@ import DataProvider
 
 
 
-extension UIViewController: CellDelegate {
+extension UIViewController: FeedCellDelegate {
   
   
   func goToProfilesList(users: [User],user: User, _ meaning: DestinationMeaning) {
+    
     let destinationVC = FollowersFollowsTableViewController()
+    
     destinationVC.listOfUsers = users
     guard let tabBarController = tabBarController else {return}
-    tabBarController.selectedIndex = 1
-    
+    tabBarController.selectedIndex = 2
     guard let navigationController = tabBarController.selectedViewController as? UINavigationController else {return}
-    
     switch meaning {
       case .followers:
         destinationVC.title = "Following"
@@ -50,38 +50,34 @@ extension UIViewController: CellDelegate {
       navigationController.viewControllers.append(profileController)
       navigationController.pushViewController(destinationVC, animated: true)
     }
-    
+    UIApplication.shared.keyWindow?.unlockTheView()
   }
   
   func goToSelectedProfile(user: User) {
-    print(Thread.current)
     _ = ProfileViewController(user: user){[weak self] controller in
-      guard let self = self else
-      {return}
-      guard let tabBarController = self.tabBarController else
-      {return}
-      tabBarController.selectedIndex = 1
-      guard let navigationController = tabBarController.selectedViewController as? UINavigationController else
-      {return}
-      print(navigationController.viewControllers.count)
+      guard let self = self else {return}
+      guard let tabBarController = self.tabBarController else {return}
+      tabBarController.selectedIndex = 2
+      guard let navigationController = tabBarController.selectedViewController as? UINavigationController else {return}
       guard !navigationController.viewControllers.isEmpty else {
-        print("Сработал гард если нав контроллер ПУСТОЙ")
         navigationController.pushViewController(controller, animated: true)
         return
       }
-      
       if navigationController.viewControllers[0] is ProfileViewController {
-        print("Сработал гард где котроллер не пустой и первый котроллер - профиль")
         navigationController.viewControllers.removeLast()
         navigationController.pushViewController(controller, animated: false)
       }
       else {
-        print("Сработал гард где котроллер не пустой и первый котроллер - не профиль")
         navigationController.pushViewController(controller, animated: true)
       }
-      
     }
-    UIApplication.shared.keyWindow?.unlockView()
+    UIApplication.shared.keyWindow?.unlockTheView()
+  }
+  
+  func alert(completion: ((UIViewController) -> ())?) {
+    let alertController = UIAlertController(title: "Unknown error!", message: "Please try again later", preferredStyle: .alert)
+    alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
+    self.present(alertController, animated: true, completion: nil)
   }
   
 }

@@ -16,6 +16,12 @@ class ProfileViewController: UIViewController {
   
   var collectionView: UICollectionView!
   var profile: User
+  {
+    willSet {
+      self.collectionView.reloadData()
+  }
+  }
+  
   var posts: [Post]?
   var finisher: ((ProfileViewController)->())?
   
@@ -23,24 +29,28 @@ class ProfileViewController: UIViewController {
     profile = user
 
     super.init(nibName: nil, bundle: nil)
-    let layout = UICollectionViewFlowLayout()
-    collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
-    navigationItem.title = profile.username
-    view.addSubview(collectionView)
-    collectionView.backgroundColor = .white
-    collectionView.delegate = self
-    collectionView.dataSource = self
-    collectionView.isScrollEnabled = true
-    collectionView.clipsToBounds = true
-    collectionView.register(ProfilePhotosCell.self, forCellWithReuseIdentifier: "ProfilePhotosCell")
-    collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
+    configure(user: user)
+  }
+  
+  func configure(user: User) {
+       let layout = UICollectionViewFlowLayout()
+       collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+      profile = user
+       navigationItem.title = profile.username
+       view.addSubview(collectionView)
+       collectionView.backgroundColor = .white
+       collectionView.delegate = self
+       collectionView.dataSource = self
+       collectionView.isScrollEnabled = true
+       collectionView.clipsToBounds = true
+       collectionView.register(ProfilePhotosCell.self, forCellWithReuseIdentifier: "ProfilePhotosCell")
+       collectionView.register(HeaderView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HeaderView")
   }
   
   convenience init(user: User, finisher: @escaping (ProfileViewController)->() )
   {
     self.init(user: user)
     self.finisher = finisher
- 
     finisher(self)
   }
  
@@ -48,13 +58,22 @@ class ProfileViewController: UIViewController {
     fatalError("init(coder:) has not been implemented")
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    guard  let currentUser =  currentUser else {
+      return
+    }
+    if profile.id == currentUser.id {
+      if profile.followsCount != currentUser.followsCount {
+        profile = currentUser
+      }
+    }
   }
+
   //MARK: - Lyfecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    
   }
   
 }

@@ -11,7 +11,7 @@ import DataProvider
 
 class FeedCell: UITableViewCell {
   var post: Post!
-  var delegate: CellDelegate?
+  var delegate: FeedCellDelegate?
   
   var doubleTapRecognizer: UITapGestureRecognizer {
     let tchRecg = UITapGestureRecognizer(target: self, action: #selector(userSomeHowTapped(sender:)))
@@ -151,7 +151,6 @@ class FeedCell: UITableViewCell {
     timeStamp.sizeToFit()
     
     //MARK: - Configuring layout by frames
-    // Прошу обратить внимание, в рецензии к последней работе преподаватель попросил меня сверстать в следующем задании макет констрейтами, но к этой просьбе я испытываю внутреннее сопротивление, потому что как было сказанно в лекции, да с кодом заморачивать чуть дольше чем с констрейтами, но при запуске верстка фреймами исполняется раза в 4 быстрее. Поэтому мне бы хотелось сделать "правильно". С autolayout я знаю как работать и домашней работы по нему было достаточно, теперь хочется ручками поделать. Извините.
     avatarImage.frame = CGRect(x: 15,
                                y: 8,
                                width: 35,
@@ -214,23 +213,36 @@ class FeedCell: UITableViewCell {
   }
   
   func goToListView() {
-   UIApplication.shared.keyWindow?.lockTheView()
-    print("Лок видимо не работает")
+    UIApplication.shared.keyWindow?.lockTheView()
     DataProviders.shared.postsDataProvider.usersLikedPost(with: post.id, queue: .global(qos: .userInteractive)){[weak self] optUIDs in
-      guard let self = self, let userIds = optUIDs else {return}
+      guard let self = self else {return}
+      guard let userIds = optUIDs else {
+        if let vc = self.delegate as? FeedTableViewController {
+          vc.alert(completion: nil)
+        }
+        return}
       var users = Array<User>()
       
-      userIds.forEach {userID in
+      userIds.forEach {[weak self] userID in
+        guard let self = self else {return}
         DataProviders.shared.usersDataProvider.user(with: userID.id, queue: .global(qos: .userInteractive)){user in
-          guard let user = user  else {return}
+          guard let user = user  else {
+            if let vc = self.delegate as? FeedTableViewController {
+              vc.alert(completion: nil)
+            }
+            return}
           users.append(user)
         }
       }
       DataProviders.shared.usersDataProvider.user(with: self.post.author, queue: .global(qos: .userInteractive)){user in
-        if let user = user {
-          DispatchQueue.main.async {
-            self.delegate?.goToProfilesList(users: users, user: user, .follows)
+        guard let user = user else {
+          if let vc = self.delegate as? FeedTableViewController {
+            vc.alert(completion: nil)
           }
+          return
+        }
+        DispatchQueue.main.async {
+          self.delegate?.goToProfilesList(users: users, user: user, .follows)
         }
       }
     }
@@ -239,13 +251,15 @@ class FeedCell: UITableViewCell {
   func goToProfile() {
     UIApplication.shared.keyWindow?.lockTheView()
     DataProviders.shared.usersDataProvider.user(with: post.author, queue: .global(qos: .userInteractive )){[weak self] user in
-      print(Thread.current)
-      guard let self = self, let user = user else {return}
-      DispatchQueue.main.async {[weak self] in
-        print(Thread.current)
-        guard let self = self else {return}
-              self.delegate?.goToSelectedProfile(user: user)
-        UIApplication.shared.keyWindow?.unlockView()
+      guard let self = self else {return}
+      guard let user = user else {
+        if let vc = self.delegate as? FeedTableViewController {
+          vc.alert(completion: nil)
+        }
+        return}
+      DispatchQueue.main.async {
+        self.delegate?.goToSelectedProfile(user: user)
+        UIApplication.shared.keyWindow?.unlockTheView()
       }
     }
     
@@ -258,28 +272,38 @@ class FeedCell: UITableViewCell {
       let group = DispatchGroup()
       group.enter()
       DataProviders.shared.postsDataProvider.likePost(with: post.id, queue: .global(qos: .userInteractive)){[weak self] post in
-        if let self = self, let receivedPost = post {
-          self.post = receivedPost
-          self.post.currentUserLikesThisPost = true
-          group.leave()
-          group.wait()
-          DispatchQueue.main.async {
-            self.likesLabel.text = "Likes: \(self.post.likedByCount)"
-            self.likesLabel.sizeToFit()
+        guard let self = self else {return}
+        guard  let receivedPost = post else {
+          if let vc = self.delegate as? FeedTableViewController {
+            vc.alert(completion: nil)
           }
+          return
+        }
+        self.post = receivedPost
+        self.post.currentUserLikesThisPost = true
+        group.leave()
+        group.wait()
+        DispatchQueue.main.async {
+          self.likesLabel.text = "Likes: \(self.post.likedByCount)"
+          self.likesLabel.sizeToFit()
         }
       }
     } else {
       likeButton.isSelected = false
       likeButton.tintColor = .lightGray
       DataProviders.shared.postsDataProvider.unlikePost(with: post.id, queue: .global(qos: .userInteractive)) {[weak self] receivedPost in
-        if let self = self, let updatePost = receivedPost {
-          self.post = updatePost
-          self.post.currentUserLikesThisPost = false
-          DispatchQueue.main.async {
-            self.likesLabel.text = "Likes: \(self.post.likedByCount)"
-            self.likesLabel.sizeToFit()
+        guard let self = self else {return}
+        guard let updatePost = receivedPost else {
+          if let vc = self.delegate as? FeedTableViewController {
+            vc.alert(completion: nil)
           }
+          return
+        }
+        self.post = updatePost
+        self.post.currentUserLikesThisPost = false
+        DispatchQueue.main.async {
+          self.likesLabel.text = "Likes: \(self.post.likedByCount)"
+          self.likesLabel.sizeToFit()
         }
       }
     }

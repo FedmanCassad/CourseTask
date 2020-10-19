@@ -14,6 +14,20 @@
 		D82D4D0D25326915007B3BAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82D4D0C25326915007B3BAA /* LaunchScreen.storyboard */; };
 		D82D4D0F25326ED0007B3BAA /* UIWindow+BlockingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D4D0E25326ED0007B3BAA /* UIWindow+BlockingView.swift */; };
 		D85B1A3A24B53D9E007925F1 /* UIViewController + CellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85B1A3924B53D9E007925F1 /* UIViewController + CellDelegate.swift */; };
+		D85C54C5253BA4BC0038D68B /* ChooseFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C54C4253BA4BC0038D68B /* ChooseFilterViewController.swift */; };
+		D85C54C7253BB6FC0038D68B /* FiltersThumbinalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C54C6253BB6FC0038D68B /* FiltersThumbinalCell.swift */; };
+		D85C54CA253C6AEA0038D68B /* FiltersThumbinalCellInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C54C9253C6AEA0038D68B /* FiltersThumbinalCellInterface.swift */; };
+		D85C54CC253C6EE20038D68B /* AddImageViewController+FiltersFullSizeCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C54CB253C6EE20038D68B /* AddImageViewController+FiltersFullSizeCellDelegate.swift */; };
+		D85C54CE253C75700038D68B /* ChooseFilterViewController+CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C54CD253C75700038D68B /* ChooseFilterViewController+CollectionViewDataSource.swift */; };
+		D85C54D1253C78AA0038D68B /* ChooseFilterViewController+CollectionViewFlowDeleagate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C54D0253C78AA0038D68B /* ChooseFilterViewController+CollectionViewFlowDeleagate.swift */; };
+		D85C54D3253C914D0038D68B /* FilterCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C54D2253C914D0038D68B /* FilterCellDelegate.swift */; };
+		D85C54D6253C91D70038D68B /* ChooseFilterViewController+FilterCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C54D5253C91D70038D68B /* ChooseFilterViewController+FilterCellDelegate.swift */; };
+		D85C54D8253CDC0A0038D68B /* SharePostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C54D7253CDC0A0038D68B /* SharePostViewController.swift */; };
+		D85C54DC253DF8720038D68B /* SharePostViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C54DB253DF8720038D68B /* SharePostViewController+TextFieldDelegate.swift */; };
+		D85DF9E02537AE1200F947AC /* AddImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85DF9DF2537AE1200F947AC /* AddImageViewController.swift */; };
+		D85DF9E4253B8D8500F947AC /* AddImageViewController+CollectionViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85DF9E3253B8D8500F947AC /* AddImageViewController+CollectionViewDataSource.swift */; };
+		D85DF9E6253B8EF400F947AC /* AddImageViewController+CollectionViewLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85DF9E5253B8EF400F947AC /* AddImageViewController+CollectionViewLayoutDelegate.swift */; };
+		D85DF9E9253B8FB100F947AC /* FiltersFullSizeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85DF9E8253B8FB100F947AC /* FiltersFullSizeCell.swift */; };
 		D878391624C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878391524C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift */; };
 		D878391824C64DB50096B051 /* FeeedTableViewController + DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878391724C64DB50096B051 /* FeeedTableViewController + DataSource.swift */; };
 		D878391C24C653870096B051 /* iPhone_SE.png in Resources */ = {isa = PBXBuildFile; fileRef = D878391B24C653870096B051 /* iPhone_SE.png */; };
@@ -22,13 +36,12 @@
 		D878392524C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878392424C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift */; };
 		D878392A24C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878392924C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift */; };
 		D878392C24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878392B24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift */; };
-		D878392F24CCD81A0096B051 /* Замечания.strings in Resources */ = {isa = PBXBuildFile; fileRef = D878392E24CCD81A0096B051 /* Замечания.strings */; };
 		D878393224CCD9A00096B051 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878393124CCD9A00096B051 /* TabBarController.swift */; };
 		D88D025824B26F03006A01E2 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88D025724B26F03006A01E2 /* FeedCell.swift */; };
 		D893F89E2529170A00A2378A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D893F89D2529170A00A2378A /* ActivityIndicator.swift */; };
 		D8A3057224BA57CA009A2014 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057124BA57CA009A2014 /* HeaderView.swift */; };
 		D8A3057524BB5D35009A2014 /* ProfilePhotosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057424BB5D35009A2014 /* ProfilePhotosCell.swift */; };
-		D8A3057724BB64FF009A2014 /* CellInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057624BB64FF009A2014 /* CellInterface.swift */; };
+		D8A3057724BB64FF009A2014 /* FeedCellInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057624BB64FF009A2014 /* FeedCellInterface.swift */; };
 		D8AEA13924C1095D0010D67C /* FollowersFollowsTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AEA13824C1095D0010D67C /* FollowersFollowsTableView.swift */; };
 		D8AEA13B24C2410C0010D67C /* FollowsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8AEA13A24C2410C0010D67C /* FollowsCell.swift */; };
 		D8C76C1324B277BA0069A777 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C76C1224B277BA0069A777 /* FeedTableViewController.swift */; };
@@ -58,6 +71,20 @@
 		D82D4D0C25326915007B3BAA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D82D4D0E25326ED0007B3BAA /* UIWindow+BlockingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+BlockingView.swift"; sourceTree = "<group>"; };
 		D85B1A3924B53D9E007925F1 /* UIViewController + CellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + CellDelegate.swift"; sourceTree = "<group>"; };
+		D85C54C4253BA4BC0038D68B /* ChooseFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFilterViewController.swift; sourceTree = "<group>"; };
+		D85C54C6253BB6FC0038D68B /* FiltersThumbinalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersThumbinalCell.swift; sourceTree = "<group>"; };
+		D85C54C9253C6AEA0038D68B /* FiltersThumbinalCellInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersThumbinalCellInterface.swift; sourceTree = "<group>"; };
+		D85C54CB253C6EE20038D68B /* AddImageViewController+FiltersFullSizeCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddImageViewController+FiltersFullSizeCellDelegate.swift"; sourceTree = "<group>"; };
+		D85C54CD253C75700038D68B /* ChooseFilterViewController+CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChooseFilterViewController+CollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		D85C54D0253C78AA0038D68B /* ChooseFilterViewController+CollectionViewFlowDeleagate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChooseFilterViewController+CollectionViewFlowDeleagate.swift"; sourceTree = "<group>"; };
+		D85C54D2253C914D0038D68B /* FilterCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCellDelegate.swift; sourceTree = "<group>"; };
+		D85C54D5253C91D70038D68B /* ChooseFilterViewController+FilterCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChooseFilterViewController+FilterCellDelegate.swift"; sourceTree = "<group>"; };
+		D85C54D7253CDC0A0038D68B /* SharePostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePostViewController.swift; sourceTree = "<group>"; };
+		D85C54DB253DF8720038D68B /* SharePostViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SharePostViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
+		D85DF9DF2537AE1200F947AC /* AddImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddImageViewController.swift; sourceTree = "<group>"; };
+		D85DF9E3253B8D8500F947AC /* AddImageViewController+CollectionViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddImageViewController+CollectionViewDataSource.swift"; sourceTree = "<group>"; };
+		D85DF9E5253B8EF400F947AC /* AddImageViewController+CollectionViewLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AddImageViewController+CollectionViewLayoutDelegate.swift"; sourceTree = "<group>"; };
+		D85DF9E8253B8FB100F947AC /* FiltersFullSizeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersFullSizeCell.swift; sourceTree = "<group>"; };
 		D878391524C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeedTableViewController + UITableViewDelegate.swift"; sourceTree = "<group>"; };
 		D878391724C64DB50096B051 /* FeeedTableViewController + DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FeeedTableViewController + DataSource.swift"; sourceTree = "<group>"; };
 		D878391B24C653870096B051 /* iPhone_SE.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iPhone_SE.png; sourceTree = "<group>"; };
@@ -66,13 +93,12 @@
 		D878392424C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProfileViewController + FlowLayoutDelegate.swift"; sourceTree = "<group>"; };
 		D878392924C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowersFollowsTableView + TableViewDelegate.swift"; sourceTree = "<group>"; };
 		D878392B24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowersFollowsTableView + DataSource.swift"; sourceTree = "<group>"; };
-		D878392E24CCD81A0096B051 /* Замечания.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = "Замечания.strings"; sourceTree = "<group>"; };
 		D878393124CCD9A00096B051 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D88D025724B26F03006A01E2 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		D893F89D2529170A00A2378A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		D8A3057124BA57CA009A2014 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		D8A3057424BB5D35009A2014 /* ProfilePhotosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotosCell.swift; sourceTree = "<group>"; };
-		D8A3057624BB64FF009A2014 /* CellInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellInterface.swift; sourceTree = "<group>"; };
+		D8A3057624BB64FF009A2014 /* FeedCellInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCellInterface.swift; sourceTree = "<group>"; };
 		D8AEA13824C1095D0010D67C /* FollowersFollowsTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowersFollowsTableView.swift; sourceTree = "<group>"; };
 		D8AEA13A24C2410C0010D67C /* FollowsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowsCell.swift; sourceTree = "<group>"; };
 		D8C76C1224B277BA0069A777 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
@@ -122,12 +148,12 @@
 		74B7927B202B3427006BCB41 /* Code */ = {
 			isa = PBXGroup;
 			children = (
+				D85DF9DD2537ADE300F947AC /* Filters */,
 				D893F89C252913E400A2378A /* GeneralExtensions */,
 				D893F89A252912D300A2378A /* ActivityIndicator */,
 				D878392124C6546F0096B051 /* Model */,
 				D878393024CCD98E0096B051 /* TabBar */,
 				74B79257202B3254006BCB41 /* AppDelegate.swift */,
-				D8A3057624BB64FF009A2014 /* CellInterface.swift */,
 				D878391D24C653ED0096B051 /* Profile */,
 				D878390F24C6465E0096B051 /* Feed */,
 				D878392624C65A690096B051 /* FollowingsOrFollows */,
@@ -148,9 +174,62 @@
 			children = (
 				D878391B24C653870096B051 /* iPhone_SE.png */,
 				74B79263202B3254006BCB41 /* Info.plist */,
-				D878392E24CCD81A0096B051 /* Замечания.strings */,
 			);
 			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D85C54C8253BD67B0038D68B /* Interfaces */ = {
+			isa = PBXGroup;
+			children = (
+				D8A3057624BB64FF009A2014 /* FeedCellInterface.swift */,
+				D85C54C9253C6AEA0038D68B /* FiltersThumbinalCellInterface.swift */,
+				D85C54D2253C914D0038D68B /* FilterCellDelegate.swift */,
+			);
+			path = Interfaces;
+			sourceTree = "<group>";
+		};
+		D85DF9DD2537ADE300F947AC /* Filters */ = {
+			isa = PBXGroup;
+			children = (
+				D85C54C8253BD67B0038D68B /* Interfaces */,
+				D85DF9E7253B8F7900F947AC /* Cells */,
+				D85DF9E2253B8D6000F947AC /* Extensions */,
+				D85DF9DE2537ADF600F947AC /* Controllers */,
+			);
+			path = Filters;
+			sourceTree = "<group>";
+		};
+		D85DF9DE2537ADF600F947AC /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D85DF9DF2537AE1200F947AC /* AddImageViewController.swift */,
+				D85C54C4253BA4BC0038D68B /* ChooseFilterViewController.swift */,
+				D85C54D7253CDC0A0038D68B /* SharePostViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D85DF9E2253B8D6000F947AC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D85DF9E3253B8D8500F947AC /* AddImageViewController+CollectionViewDataSource.swift */,
+				D85DF9E5253B8EF400F947AC /* AddImageViewController+CollectionViewLayoutDelegate.swift */,
+				D85C54CB253C6EE20038D68B /* AddImageViewController+FiltersFullSizeCellDelegate.swift */,
+				D85C54CD253C75700038D68B /* ChooseFilterViewController+CollectionViewDataSource.swift */,
+				D85C54D0253C78AA0038D68B /* ChooseFilterViewController+CollectionViewFlowDeleagate.swift */,
+				D85C54D5253C91D70038D68B /* ChooseFilterViewController+FilterCellDelegate.swift */,
+				D85C54DB253DF8720038D68B /* SharePostViewController+TextFieldDelegate.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D85DF9E7253B8F7900F947AC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				D85DF9E8253B8FB100F947AC /* FiltersFullSizeCell.swift */,
+				D85C54C6253BB6FC0038D68B /* FiltersThumbinalCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		D878390F24C6465E0096B051 /* Feed */ = {
@@ -362,7 +441,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D878391C24C653870096B051 /* iPhone_SE.png in Resources */,
-				D878392F24CCD81A0096B051 /* Замечания.strings in Resources */,
 				D82D4D0D25326915007B3BAA /* LaunchScreen.storyboard in Resources */,
 				74B7925F202B3254006BCB41 /* Assets.xcassets in Resources */,
 			);
@@ -375,26 +453,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D85C54D6253C91D70038D68B /* ChooseFilterViewController+FilterCellDelegate.swift in Sources */,
 				D878392A24C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift in Sources */,
 				D8A3057224BA57CA009A2014 /* HeaderView.swift in Sources */,
+				D85DF9E4253B8D8500F947AC /* AddImageViewController+CollectionViewDataSource.swift in Sources */,
 				D85B1A3A24B53D9E007925F1 /* UIViewController + CellDelegate.swift in Sources */,
 				D82D4D0F25326ED0007B3BAA /* UIWindow+BlockingView.swift in Sources */,
 				D878393224CCD9A00096B051 /* TabBarController.swift in Sources */,
 				D8C76C1324B277BA0069A777 /* FeedTableViewController.swift in Sources */,
+				D85C54D8253CDC0A0038D68B /* SharePostViewController.swift in Sources */,
 				D878392024C654590096B051 /* SupportionModel.swift in Sources */,
 				D8A3057524BB5D35009A2014 /* ProfilePhotosCell.swift in Sources */,
+				D85DF9E6253B8EF400F947AC /* AddImageViewController+CollectionViewLayoutDelegate.swift in Sources */,
+				D85C54CE253C75700038D68B /* ChooseFilterViewController+CollectionViewDataSource.swift in Sources */,
+				D85C54D3253C914D0038D68B /* FilterCellDelegate.swift in Sources */,
 				D8AEA13924C1095D0010D67C /* FollowersFollowsTableView.swift in Sources */,
+				D85C54C5253BA4BC0038D68B /* ChooseFilterViewController.swift in Sources */,
 				D878392C24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift in Sources */,
+				D85C54D1253C78AA0038D68B /* ChooseFilterViewController+CollectionViewFlowDeleagate.swift in Sources */,
+				D85C54CA253C6AEA0038D68B /* FiltersThumbinalCellInterface.swift in Sources */,
 				D878391624C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift in Sources */,
 				D8AEA13B24C2410C0010D67C /* FollowsCell.swift in Sources */,
 				D8F4F1F324BA54F700D74CA8 /* ProfileViewController.swift in Sources */,
+				D85C54C7253BB6FC0038D68B /* FiltersThumbinalCell.swift in Sources */,
 				D878391824C64DB50096B051 /* FeeedTableViewController + DataSource.swift in Sources */,
 				74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */,
 				D878392324C654920096B051 /* ProfileViewController + CollectionDataSource.swift in Sources */,
 				D893F89E2529170A00A2378A /* ActivityIndicator.swift in Sources */,
+				D85C54DC253DF8720038D68B /* SharePostViewController+TextFieldDelegate.swift in Sources */,
+				D85DF9E9253B8FB100F947AC /* FiltersFullSizeCell.swift in Sources */,
+				D85DF9E02537AE1200F947AC /* AddImageViewController.swift in Sources */,
 				D878392524C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift in Sources */,
 				D88D025824B26F03006A01E2 /* FeedCell.swift in Sources */,
-				D8A3057724BB64FF009A2014 /* CellInterface.swift in Sources */,
+				D85C54CC253C6EE20038D68B /* AddImageViewController+FiltersFullSizeCellDelegate.swift in Sources */,
+				D8A3057724BB64FF009A2014 /* FeedCellInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

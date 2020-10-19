@@ -10,24 +10,22 @@ import UIKit
 import DataProvider
 
 extension ProfileViewController: UICollectionViewDataSource {
-  
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     let group = DispatchGroup()
     group.enter()
     DataProviders.shared.postsDataProvider.findPosts(by: profile.id, queue: .global(qos: .background), handler: {[weak self] optPosts in
       guard let self = self else {return}
       guard let recievedPosts = optPosts else {
+        self.alert(completion: nil)
         return}
       self.posts = recievedPosts
       group.leave()
     })
     group.wait()
     if let posts = self.posts {
-      print("Вернулся \(posts.count)")
        return posts.count
     }
     else {
-      print("Сработал 0")
       return 0
     }
     

@@ -10,7 +10,7 @@ import UIKit
 import DataProvider
 class FollowsCell: UITableViewCell {
   var user: User!
-  var delegate: CellDelegate?
+  var delegate: FeedCellDelegate?
   
   var singleTapRecognizer: UITapGestureRecognizer {
     let tchRecg = UITapGestureRecognizer(target: self, action: #selector(selectProfile))
@@ -59,6 +59,7 @@ class FollowsCell: UITableViewCell {
   }
   
   @objc func selectProfile() {
+    UIApplication.shared.keyWindow?.lockTheView()
     delegate?.goToSelectedProfile(user: user)
   }
   

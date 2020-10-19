@@ -8,18 +8,18 @@
 
 import UIKit
 extension UIWindow {
+  
   func lockTheView() {
     let lockView = ActivityIndicator()
     addSubview(lockView)
-    
   }
   
-  func unlockView() {
+  func unlockTheView() {
     subviews.forEach {
       if $0 is ActivityIndicator {
         $0.removeFromSuperview()
       }
-      
     }
   }
+  
 }

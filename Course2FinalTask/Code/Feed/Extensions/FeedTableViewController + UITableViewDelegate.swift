@@ -16,7 +16,6 @@ extension FeedTableViewController: UITableViewDelegate {
     cell.configure(with: feed[indexPath.row])
     let height = cell.contentView.frame.maxY
     return height
-   
-
   }
+  
 }

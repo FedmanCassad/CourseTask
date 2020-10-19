@@ -18,7 +18,6 @@ class FollowersFollowsTableViewController: UIViewController {
     super.viewWillAppear(animated)
     
     if let indexPath = tableView.indexPathForSelectedRow {
-      print(indexPath.row)
       tableView.deselectRow(at: indexPath, animated: true)
     }
   }
@@ -36,7 +35,7 @@ class FollowersFollowsTableViewController: UIViewController {
     
     tableView.delegate = self
     tableView.dataSource = self
-    tableView.register(FollowsCell.self, forCellReuseIdentifier: "FollowsCell")
+   
   }
   
 }

@@ -16,13 +16,14 @@ class ProfilePhotosCell: UICollectionViewCell {
     return imgView
   }()
   
-  func configure(post: Post){
+  final func configure(post: Post){
     contentView.clipsToBounds = true
     image.image = post.image
     image.frame.size = CGSize(width: UIScreen.main.bounds.width/3-1, height: 0 )
     image.frame.size.height = image.frame.width
     contentView.frame = image.bounds
     contentView.addSubview(image)
+   
 }
   
 }
