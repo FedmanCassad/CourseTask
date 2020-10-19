@@ -16,6 +16,7 @@ class FeedTableViewController: UIViewController {
   //MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     let group = DispatchGroup()
     group.enter()
     DataProviders.shared.postsDataProvider.feed(queue: .global(qos: .userInteractive)){[weak self] posts in

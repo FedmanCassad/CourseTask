@@ -118,6 +118,7 @@ class FeedCell: UITableViewCell {
     //MARK: - Initialising UIs with post data
     frame.size.width = UIScreen.main.bounds.width
     clipsToBounds = true
+//    backgroundColor = .white
     avatarImage.image = post.authorAvatar
     usersName.text = post.authorUsername
     let formatter = DateFormatter()
