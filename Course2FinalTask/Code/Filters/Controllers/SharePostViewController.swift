@@ -78,8 +78,6 @@ class SharePostViewController: UIViewController {
         if let navigationController = self.tabBarController?.selectedViewController as? UINavigationController {
           if let feed = navigationController.viewControllers[0] as? FeedTableViewController {
             feed.feed.insert(post, at: 0)
-            feed.tableView.reloadData()
-           
             feed.tableView.scrollToRow(at: .init(item: 0, section: 0), at: .top, animated: true)
             self.navigationController?.viewControllers.removeLast(2)
           }

@@ -9,14 +9,13 @@
 import UIKit
 import DataProvider
 class FeedTableViewController: UIViewController {
-  var feed: [DataProvider.Post] = []
   
+  var feed: [DataProvider.Post] = []
   let tableView = UITableView()
   
   //MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    
     let group = DispatchGroup()
     group.enter()
     DataProviders.shared.postsDataProvider.feed(queue: .global(qos: .userInteractive)){[weak self] posts in
