@@ -34,6 +34,7 @@ class FeedTableViewController: UIViewController {
     tableView.dataSource = self
     tableView.register(FeedCell.self, forCellReuseIdentifier: "FeedCell")
     tableView.separatorStyle = .none
+    tableView.allowsSelection = false
     title = "Feed"
   }
   
