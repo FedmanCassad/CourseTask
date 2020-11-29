@@ -6,13 +6,13 @@
 //  Copyright © 2020 e-Legion. All rights reserved.
 //
 
-import UIKit
-
-extension AddImageViewController: FiltersFullSizeCellDelegate {
-  
-  func goToFiltersViewController(image: UIImage) {
-    let vc = ChooseFilterViewController(image)
-    navigationController?.pushViewController(vc, animated: true)
-  }
-  
-}
+//import UIKit
+//
+//extension AddImageViewController: FiltersFullSizeCellDelegate {
+//  
+//  func goToFiltersViewController(image: UIImage) {
+//    let vc = ChooseFilterViewController(image)
+//    navigationController?.pushViewController(vc, animated: true)
+//  }
+//  
+//}
