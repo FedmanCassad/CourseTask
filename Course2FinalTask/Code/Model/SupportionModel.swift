@@ -9,3 +9,21 @@ enum DestinationMeaning {
   case followers
   case follows
 }
+
+enum DataError: Error {
+  case noDataRecieved
+  case noTokenParsed
+  case requestError
+  var localizedDescription: String {
+    switch self {
+      case
+        .noDataRecieved:
+        return "Data task cannot retrieve the data piece"
+      case .noTokenParsed:
+        return "Cannot get token from recieved data"
+      case .requestError:
+        return "Something wrong with performed request"
+    }
+  }
+  
+}

@@ -6,13 +6,13 @@
 //  Copyright © 2020 e-Legion. All rights reserved.
 //
 
-//import UIKit
-//
-//extension ChooseFilterViewController: FilterCellDelegate {
-//  
-//  func applyFilter(_ filteredImage: UIImage?) {
-//    guard let safeImage = filteredImage else {return}
-//    mainImageView.image = safeImage
-//  }
-//  
-//}
+import UIKit
+
+extension ChooseFilterViewController: FilterCellDelegate {
+  
+  func applyFilter(_ filteredImage: UIImage?) {
+    guard let safeImage = filteredImage else {return}
+    mainImageView.image = safeImage
+  }
+  
+}

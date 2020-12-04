@@ -53,8 +53,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    tabBarController.viewControllers = [feedNavigationController, addImageNavigationController, profileNavigationController]
 //    tabBarController.tabBar.unselectedItemTintColor = .lightGray
     let vc = LoginViewController()
-    let inspector = LoginInspector()
-    vc.delegate = inspector
     window = UIWindow(frame: UIScreen.main.bounds)
     window?.rootViewController = vc
     window?.makeKeyAndVisible()

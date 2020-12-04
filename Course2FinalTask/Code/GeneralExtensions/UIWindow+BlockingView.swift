@@ -6,20 +6,20 @@
 //  Copyright © 2020 e-Legion. All rights reserved.
 //
 //
-//import UIKit
-//extension UIWindow {
-//  
-//  func lockTheView() {
-//    let lockView = ActivityIndicator()
-//    addSubview(lockView)
-//  }
-//  
-//  func unlockTheView() {
-//    subviews.forEach {
-//      if $0 is ActivityIndicator {
-//        $0.removeFromSuperview()
-//      }
-//    }
-//  }
-//  
-//}
+import UIKit
+
+extension UIWindow {
+  func lockTheView() {
+    let lockView = ActivityIndicator()
+    addSubview(lockView)
+  }
+  
+  func unlockTheView() {
+    subviews.forEach {
+      if $0 is ActivityIndicator {
+        $0.removeFromSuperview()
+      }
+    }
+  }
+  
+}

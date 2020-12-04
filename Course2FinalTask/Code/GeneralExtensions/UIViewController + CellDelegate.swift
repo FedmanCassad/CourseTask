@@ -6,12 +6,12 @@
 //  Copyright © 2020 e-Legion. All rights reserved.
 //
 
-//import UIKit
-//import DataProvider
+import UIKit
 
 
 
-//extension UIViewController: FeedCellDelegate {
+
+extension UIViewController: FeedCellDelegate {
   
   
 //  func goToProfilesList(users: [User],user: User, _ meaning: DestinationMeaning) {
@@ -80,4 +80,4 @@
 //    self.present(alertController, animated: true, completion: nil)
 //  }
 //
-//}
+}

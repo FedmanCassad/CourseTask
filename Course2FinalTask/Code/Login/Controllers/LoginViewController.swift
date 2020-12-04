@@ -10,8 +10,6 @@ import UIKit
 
 class LoginViewController: UIViewController {
   
- var delegate: LoginViewControllerDelegate?
-  
   
   var isFieldsAreEmpty: Bool  {
     guard let loginString = loginNameTextField.text,
@@ -72,6 +70,7 @@ class LoginViewController: UIViewController {
   
   override func viewDidLoad() {
     view.backgroundColor = .white
+    print(DataError.noDataRecieved.localizedDescription)
     
   }
   
