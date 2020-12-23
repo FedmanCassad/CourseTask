@@ -5,6 +5,8 @@
 //  Created by Vladimir Banushkin on 21.07.2020.
 //  Copyright © 2020 e-Legion. All rights reserved.
 //
+import UIKit
+
 enum DestinationMeaning {
   case followers
   case follows
@@ -13,7 +15,7 @@ enum DestinationMeaning {
 enum DataError: Error {
   case noDataRecieved
   case noTokenParsed
-  case requestError
+  case requestError(errorCode: HTTPURLResponse)
   var localizedDescription: String {
     switch self {
       case

@@ -6,22 +6,9 @@
 //
 
 import UIKit
-//import  DataProvider
 
-// Я знаю что глобальные перменные это табу, но - это константа во-первых:))), во-вторых: он у нас не меняется, он нужен, и зачем его каждый раз дергать если он понадобится из тормозного метода дата провайдера мне не совсем понятно. Для скорости пусть будет.
-//var currentUser: User? = {
-//  let group = DispatchGroup()
-//  group.enter()
-//  var curUser: User? = nil
-//  DataProviders.shared.usersDataProvider.currentUser(queue: .global(qos: .userInteractive)){user in
-//    guard let recievedUser = user
-//      else {return}
-//    curUser = recievedUser
-//    group.leave()
-//  }
-//  group.wait()
-//  return curUser
-//}()
+
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -41,7 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //    let feedNavigationController = UINavigationController()
 //    let addImageNavigationController = UINavigationController()
 //    let profileNavigationController = UINavigationController()
-//    let feedViewController = FeedTableViewController()
+//    let feedViewController = FeedTableViewController(feed: feed)
 //    let imageLibraryViewController = AddImageViewController()
 //    feedNavigationController.viewControllers = [feedViewController]
 //    addImageNavigationController.viewControllers = [imageLibraryViewController]

@@ -114,19 +114,24 @@ class FeedCell: UITableViewCell {
   
   
   func configure(with post: Post) {
+
+      
+    
+    
     self.post = post
     //MARK: - Initialising UIs with post data
     frame.size.width = UIScreen.main.bounds.width
     clipsToBounds = true
     backgroundColor = .white
-    let avatarURL = URL(string: post.authorAvatar)
-    avatarImage.kf.setImage(with: avatarURL)
+//    let avatarURL = URL(string: post.authorAvatar)
+
+    avatarImage.kf.setImage(with: post.authorAvatar)
+    postImage.kf.setImage(with: post.image)
+       
+    
     usersName.text = post.authorUsername
     let isoFormatter = ISO8601DateFormatter()
     guard let date = isoFormatter.date(from: post.createdTime) else {return}
-    print(date)
-    print(post.createdTime)
-  
     let formatter = DateFormatter()
     formatter.dateStyle = .medium
     formatter.timeStyle = .medium
@@ -143,8 +148,10 @@ class FeedCell: UITableViewCell {
       
       timeStamp.text = formatter.string(from: date)
     }
-    let imageURL = URL(string: post.image)
-    postImage.kf.setImage(with: imageURL)
+    
+
+    
+    
     likesLabel.text = "Likes: \(post.likedByCount)"
     commentLabel.text = post.description
     if post.currentUserLikesThisPost {
@@ -152,6 +159,7 @@ class FeedCell: UITableViewCell {
       likeButton.tintColor = .systemBlue
     }
     configureLayout()
+    
   }
 
   private func configureLayout () {
@@ -318,6 +326,7 @@ class FeedCell: UITableViewCell {
 //      }
 //    }
   }
+ 
   
 }
 

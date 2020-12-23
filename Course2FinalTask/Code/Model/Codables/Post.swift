@@ -9,7 +9,8 @@
 import Foundation
 
 struct Post: Codable {
-  var id, description, image, createdTime, author, authorUsername, authorAvatar: String
+  var id, description, createdTime, author, authorUsername : String
+  var image, authorAvatar: URL
   var currentUserLikesThisPost: Bool
   var likedByCount: Int    
 }

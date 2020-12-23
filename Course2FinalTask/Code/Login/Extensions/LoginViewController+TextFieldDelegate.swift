@@ -17,14 +17,12 @@ extension LoginViewController: UITextFieldDelegate {
     } else {
       if !isFieldsAreEmpty {
         view.endEditing(true)
-        UIApplication.shared.windows.first?.lockTheView()
-        
+//        UIApplication.shared.windows.first?.lockTheView()
         loginAttempt(login: loginNameTextField.text!, password: passwordTextField.text!)
         return true
       }
     return true
     }
-  
   }
   
  @objc func textChanged(_ sender: UITextField) {

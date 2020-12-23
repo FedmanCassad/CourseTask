@@ -11,7 +11,11 @@ import UIKit
 class AddImageViewController: UIViewController {
   
   lazy var imageLibrary: [UIImage?]  = {
-    return [UIImage(contentsOfFile: "./Server/New/New1.jpg")]
+    var images = Array<UIImage?>()
+    for i in 1...8 {
+      images.append(UIImage(contentsOfFile: "./New/New\(i).jpg") ?? nil)
+    }
+    return images
   }()
   
   init() {

@@ -33,9 +33,7 @@ class HeaderView: UICollectionReusableView {
           self.addSubview(self.folllowOrUnfollowButton)
         }
       }
-      
     }
-    
     
   }
   
@@ -89,7 +87,7 @@ class HeaderView: UICollectionReusableView {
   
   func configure (user: User) {
     self.user = user
-    avatar.kf.setImage(with: URL(string: user.avatar))
+    avatar.getImage(fromURL: URL(string: user.avatar)!)
     fullNameLabel.text = user.fullName
     followersLabel.text = "Followers: \(user.followedByCount)"
     followingsLabel.text = "Followings: \(user.followsCount)"
@@ -128,75 +126,75 @@ class HeaderView: UICollectionReusableView {
   
   @objc func goToFollowersListView() {
 //    UIApplication.shared.keyWindow?.lockTheView()
-//    DataProviders.shared.usersDataProvider.usersFollowingUser(with: user.id, queue: .global(qos: .userInitiated)) {[weak self] users in
-//      guard let self = self else {return}
-//      guard let users = users  else {
-//        if let vc = self.delegate as? ProfileViewController {
-//          vc.alert(completion: nil)
-//        }
-//        return}
-//      DispatchQueue.main.async {
-//        self.delegate?.goToProfilesList(users: users, user: self.user, .followers)
-//      }
-//    }
+    NetworkEngine.shared.usersFollowingUser(with: user.id) {[weak self] users in
+      guard let self = self else {return}
+      guard let users = users  else {
+        if let vc = self.delegate as? ProfileViewController {
+          vc.alert(completion: nil)
+        }
+        return}
+      DispatchQueue.main.async {
+        self.delegate?.goToProfilesList(users: users, user: self.user, .followers)
+      }
+    }
   }
   
   
   @objc func goToFollowsListView() {
 //    UIApplication.shared.keyWindow?.lockTheView()
-//    DataProviders.shared.usersDataProvider.usersFollowedByUser(with: user.id, queue: .global(qos: .userInitiated)) {[weak self] users in
-//      guard let self = self else {return}
-//      guard let users = users else {
-//        if let vc = self.delegate as? ProfileViewController {
-//          vc.alert(completion: nil)
-//        }
-//        return}
-//      DispatchQueue.main.async {
-//        self.delegate?.goToProfilesList(users: users, user: self.user, .follows)
-//      }
-//    }
+    NetworkEngine.shared.usersFollowedByUser(with: user.id) {[weak self] users in
+      guard let self = self else {return}
+      guard let users = users else {
+        if let vc = self.delegate as? ProfileViewController {
+          vc.alert(completion: nil)
+        }
+        return}
+      DispatchQueue.main.async {
+        self.delegate?.goToProfilesList(users: users, user: self.user, .follows)
+      }
+    }
   }
   
   @objc func followUnfollow () {
 //    UIApplication.shared.keyWindow?.lockTheView()
     if !user.currentUserFollowsThisUser {
-//      DataProviders.shared.usersDataProvider.follow(user.id, queue:.global(qos: .userInteractive)){[weak self] recievedUser in
-//        guard let self = self else {return}
-//        guard let user = recievedUser else {
-//          if let vc = self.delegate as? ProfileViewController {
-//            vc.alert(completion: nil)
-//          }
-//          return
-//        }
-//        DataProviders.shared.usersDataProvider.currentUser(queue: .global(qos: .userInteractive)) {user in
-//          guard let user = user else {return}
-//          currentUser = user
-//        }
-//
-//        DispatchQueue.main.async {
-//          self.configure(user: user)
-//          UIApplication.shared.keyWindow?.unlockTheView()
-//        }
-//      }
+      NetworkEngine.shared.follow(with: user.id){[weak self] recievedUser in
+        guard let self = self else {return}
+        guard let user = recievedUser else {
+          if let vc = self.delegate as? ProfileViewController {
+            vc.alert(completion: nil)
+          }
+          return
+        }
+        NetworkEngine.shared.currentUser {user in
+          guard let user = user else {return}
+          NetworkEngine.shared.currentUser = user
+        }
+
+        DispatchQueue.main.async {
+          self.configure(user: user)
+          UIApplication.shared.keyWindow?.unlockTheView()
+        }
+      }
     }
     else {
-//      DataProviders.shared.usersDataProvider.unfollow(user.id, queue:.global(qos: .userInteractive)){[weak self] recievedUser in
-//        guard let self = self else {return}
-//        guard let user = recievedUser else {
-//          if let vc = self.delegate as? ProfileViewController {
-//            vc.alert(completion: nil)
-//          }
-//          return
-//        }
-//        DataProviders.shared.usersDataProvider.currentUser(queue: .global(qos: .userInteractive)) {user in
-//          guard let user = user else {return}
-//          currentUser = user
-//        }
-//        DispatchQueue.main.async {
-//          self.configure(user: user)
-//          UIApplication.shared.keyWindow?.unlockTheView()
-//        }
-//      }
+      NetworkEngine.shared.unfollow(with: user.id){[weak self] recievedUser in
+        guard let self = self else {return}
+        guard let user = recievedUser else {
+          if let vc = self.delegate as? ProfileViewController {
+            vc.alert(completion: nil)
+          }
+          return
+        }
+        DispatchQueue.main.async {
+          self.configure(user: user)
+          UIApplication.shared.keyWindow?.unlockTheView()
+        }
+        DispatchQueue.main.async {
+          self.configure(user: user)
+          UIApplication.shared.keyWindow?.unlockTheView()
+        }
+      }
     }
   }
   

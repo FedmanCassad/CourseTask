@@ -24,6 +24,9 @@ class FeedTableViewController: UIViewController {
   //MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
+//    NetworkEngine.shared.getCurrentUser{
+//      print($0)
+//    }
 //    let group = DispatchGroup()
     tableView.translatesAutoresizingMaskIntoConstraints = false
     tableView.frame = UIScreen.main.bounds

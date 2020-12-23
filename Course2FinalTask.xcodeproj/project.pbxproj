@@ -50,6 +50,9 @@
 		D8B5C9BE2577072F00B21F62 /* LoginViewController+LoginFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C9BD2577072F00B21F62 /* LoginViewController+LoginFlow.swift */; };
 		D8B5C9C12577133800B21F62 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B5C9C02577133800B21F62 /* Post.swift */; };
 		D8C76C1324B277BA0069A777 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C76C1224B277BA0069A777 /* FeedTableViewController.swift */; };
+		D8C95050258F486B00092C55 /* UIImageView+getImageFrommURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8C9504F258F486B00092C55 /* UIImageView+getImageFrommURL.swift */; };
+		D8D64D3B25859730003A87D3 /* NavigationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D64D3A25859730003A87D3 /* NavigationCoordinator.swift */; };
+		D8D64D3D25859AB2003A87D3 /* TabBarNavigationObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8D64D3C25859AB2003A87D3 /* TabBarNavigationObject.swift */; };
 		D8DCBF422575A122007C7F5F /* UIViewController+HexConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DCBF412575A122007C7F5F /* UIViewController+HexConverter.swift */; };
 		D8DCBF452575A2A9007C7F5F /* LoginViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DCBF442575A2A9007C7F5F /* LoginViewController+TextFieldDelegate.swift */; };
 		D8F4F1F324BA54F700D74CA8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4F1F224BA54F700D74CA8 /* ProfileViewController.swift */; };
@@ -116,6 +119,9 @@
 		D8B5C9BD2577072F00B21F62 /* LoginViewController+LoginFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+LoginFlow.swift"; sourceTree = "<group>"; };
 		D8B5C9C02577133800B21F62 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		D8C76C1224B277BA0069A777 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		D8C9504F258F486B00092C55 /* UIImageView+getImageFrommURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+getImageFrommURL.swift"; sourceTree = "<group>"; };
+		D8D64D3A25859730003A87D3 /* NavigationCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationCoordinator.swift; sourceTree = "<group>"; };
+		D8D64D3C25859AB2003A87D3 /* TabBarNavigationObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarNavigationObject.swift; sourceTree = "<group>"; };
 		D8DCBF412575A122007C7F5F /* UIViewController+HexConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HexConverter.swift"; sourceTree = "<group>"; };
 		D8DCBF442575A2A9007C7F5F /* LoginViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		D8F4F1F224BA54F700D74CA8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -219,6 +225,7 @@
 		D835AD6325768992004B252D /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				D8D64D3A25859730003A87D3 /* NavigationCoordinator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -387,6 +394,7 @@
 			isa = PBXGroup;
 			children = (
 				D878393124CCD9A00096B051 /* TabBarController.swift */,
+				D8D64D3C25859AB2003A87D3 /* TabBarNavigationObject.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -422,6 +430,7 @@
 				D85B1A3924B53D9E007925F1 /* UIViewController + CellDelegate.swift */,
 				D82D4D0E25326ED0007B3BAA /* UIWindow+BlockingView.swift */,
 				D8DCBF412575A122007C7F5F /* UIViewController+HexConverter.swift */,
+				D8C9504F258F486B00092C55 /* UIImageView+getImageFrommURL.swift */,
 			);
 			path = GeneralExtensions;
 			sourceTree = "<group>";
@@ -626,10 +635,13 @@
 				D878391824C64DB50096B051 /* FeeedTableViewController + DataSource.swift in Sources */,
 				D8DCBF452575A2A9007C7F5F /* LoginViewController+TextFieldDelegate.swift in Sources */,
 				74B79258202B3254006BCB41 /* AppDelegate.swift in Sources */,
+				D8D64D3D25859AB2003A87D3 /* TabBarNavigationObject.swift in Sources */,
 				D8B5C9BC2576E24400B21F62 /* NetworkiSingleton.swift in Sources */,
+				D8C95050258F486B00092C55 /* UIImageView+getImageFrommURL.swift in Sources */,
 				D878392324C654920096B051 /* ProfileViewController + CollectionDataSource.swift in Sources */,
 				D893F89E2529170A00A2378A /* ActivityIndicator.swift in Sources */,
 				D85C54DC253DF8720038D68B /* SharePostViewController+TextFieldDelegate.swift in Sources */,
+				D8D64D3B25859730003A87D3 /* NavigationCoordinator.swift in Sources */,
 				D88189A3257456FB0023D2A4 /* LoginViewController.swift in Sources */,
 				D85DF9E9253B8FB100F947AC /* FiltersFullSizeCell.swift in Sources */,
 				D85DF9E02537AE1200F947AC /* AddImageViewController.swift in Sources */,
