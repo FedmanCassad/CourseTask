@@ -12,9 +12,11 @@ class AddImageViewController: UIViewController {
   
   lazy var imageLibrary: [UIImage?]  = {
     var images = Array<UIImage?>()
-    for i in 1...8 {
-      images.append(UIImage(contentsOfFile: "./New/New\(i).jpg") ?? nil)
-    }
+    guard let filesCount = Bundle.main.urls(forResourcesWithExtension: "jpg", subdirectory: nil)?.count else { return [nil] }
+          for i in 1...filesCount {
+            let path = Bundle.main.path(forResource: "new\(i)", ofType: "jpg")
+            images.append(UIImage(contentsOfFile: path!) ?? nil)
+          }
     return images
   }()
   

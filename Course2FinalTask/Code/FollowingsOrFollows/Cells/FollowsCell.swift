@@ -42,8 +42,8 @@ class FollowsCell: UITableViewCell {
     translatesAutoresizingMaskIntoConstraints = false
     
     self.user = user
-    
-    avatarImage.getImage(fromURL: URL(string: user.avatar)!)
+    //Оставим это на техдолг
+    avatarImage.kf.setImage(with: URL(string: user.avatar)!)
     avatarImage.frame = CGRect(x: 15, y: 0, width: 45, height: 45)
     
     userName.text = user.username

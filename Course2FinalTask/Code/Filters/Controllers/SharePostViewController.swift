@@ -59,30 +59,24 @@ class SharePostViewController: UIViewController {
   }
   
   @objc func sharePost() {
-//    UIApplication.shared.keyWindow?.lockTheView()
-//    _ = self.textFieldShouldReturn(textField)
-//    guard let image = postImage.image,
-//      let description = textField.text else {return}
-//
-//    DataProviders.shared.postsDataProvider.newPost(with: image, description: description, queue: .global(qos: .userInitiated)) {[weak self] post in
-//      guard let self = self else {return}
-//      guard let post = post else {
-//        self.alert(completion: nil)
-//        return
-//      }
-//
-//      DispatchQueue.main.async {
-//        UIApplication.shared.keyWindow?.unlockTheView()
-//        self.tabBarController?.selectedIndex = 0
-//        if let navigationController = self.tabBarController?.selectedViewController as? UINavigationController {
-//          if let feed = navigationController.viewControllers[0] as? FeedTableViewController {
-//            feed.feed.insert(post, at: 0)
-//            feed.tableView.scrollToRow(at: .init(item: 0, section: 0), at: .top, animated: true)
-//            self.navigationController?.viewControllers.removeLast(2)
-//          }
-//        }
-//      }
-//    }
+    UIApplication.shared.keyWindow?.lockTheView()
+    _ = self.textFieldShouldReturn(textField)
+    guard let image = postImage.image,
+          let description = textField.text else {return}
+    
+    NetworkEngine.shared.uploadPost(image: image, description: description) {[weak self] post in
+      guard let self = self else {return}
+      guard let post = post else {
+        self.alert(completion: nil)
+        return
+      }
+      
+      DispatchQueue.main.async {
+        UIApplication.shared.keyWindow?.unlockTheView()
+        self.tabBarController?.selectedIndex = 0
+        Router.updateFeedIfNeeded(with: post)
+      }
+    }
   }
   
   required init?(coder: NSCoder) {

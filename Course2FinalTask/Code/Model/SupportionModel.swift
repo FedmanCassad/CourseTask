@@ -16,6 +16,7 @@ enum DataError: Error {
   case noDataRecieved
   case noTokenParsed
   case requestError(errorCode: HTTPURLResponse)
+  case parsingFailed
   var localizedDescription: String {
     switch self {
       case
@@ -25,6 +26,8 @@ enum DataError: Error {
         return "Cannot get token from recieved data"
       case .requestError:
         return "Something wrong with performed request"
+      case .parsingFailed:
+        return "Failed to decode recieved data"
     }
   }
   

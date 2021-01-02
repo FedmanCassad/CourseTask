@@ -60,18 +60,17 @@ class LoginViewController: UIViewController {
     button.frame.size.height = 50
     button.center.x = view.center.x
     button.frame.origin.y = passwordTextField.frame.maxY + 100
-    button.backgroundColor = hexStringToUIColor(hex: "#007AFF")
+    button.backgroundColor = LoginViewController.hexStringToUIColor(hex: "#007AFF")
     button.tintColor = .white
     button.setTitle("Sign in", for: .normal)
     button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+    button.layer.cornerRadius = 5
     button.layer.opacity = 0.3
     return button
   }()
   
   override func viewDidLoad() {
     view.backgroundColor = .white
-    print(DataError.noDataRecieved.localizedDescription)
-    
   }
   
   override func viewDidLayoutSubviews() {

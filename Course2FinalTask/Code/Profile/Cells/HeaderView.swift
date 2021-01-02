@@ -85,13 +85,28 @@ class HeaderView: UICollectionReusableView {
     return button
   }()
   
+  lazy var logOutButton: UIButton = {
+    
+    $0.setTitle("Log out", for: .normal)
+    $0.frame.size.height = $0.intrinsicContentSize.height
+    $0.frame.size.width = followingsLabel.frame.width
+    $0.backgroundColor = UIViewController.hexStringToUIColor(hex: "#007AFF")
+    $0.layer.cornerRadius = 5
+    $0.setTitleColor(.white, for: .normal)
+    $0.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+    
+    return $0
+  }(UIButton())
+  
   func configure (user: User) {
     self.user = user
-    avatar.getImage(fromURL: URL(string: user.avatar)!)
+    avatar.kf.setImage(with: URL(string: user.avatar)!)
     fullNameLabel.text = user.fullName
     followersLabel.text = "Followers: \(user.followedByCount)"
     followingsLabel.text = "Followings: \(user.followsCount)"
     configureLayout()
+    print(NetworkEngine.shared.currentUser?.id)
+    logOutButton.isHidden =  user.id == NetworkEngine.shared.currentUser?.id ? false : true
   }
   
   
@@ -114,16 +129,17 @@ class HeaderView: UICollectionReusableView {
     
     folllowOrUnfollowButton.frame.origin.x = frame.maxX - 25 - folllowOrUnfollowButton.frame.width
     folllowOrUnfollowButton.frame.origin.y = fullNameLabel.frame.minY
+    logOutButton.center.x = followingsLabel.center.x
+    logOutButton.center.y = fullNameLabel.center.y + 10
     
     addSubview(avatar)
     addSubview(fullNameLabel)
     addSubview(followersLabel)
     addSubview(followingsLabel)
+    addSubview(logOutButton)
   }
   
   //MARK: - Actions
-  
-  
   @objc func goToFollowersListView() {
 //    UIApplication.shared.keyWindow?.lockTheView()
     NetworkEngine.shared.usersFollowingUser(with: user.id) {[weak self] users in
@@ -137,6 +153,10 @@ class HeaderView: UICollectionReusableView {
         self.delegate?.goToProfilesList(users: users, user: self.user, .followers)
       }
     }
+  }
+  
+  @objc func logOut() {
+    Router.backToLoginView()
   }
   
   
