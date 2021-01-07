@@ -59,7 +59,7 @@ class SharePostViewController: UIViewController {
   }
   
   @objc func sharePost() {
-    UIApplication.shared.keyWindow?.lockTheView()
+     Router.window?.lockTheView()
     _ = self.textFieldShouldReturn(textField)
     guard let image = postImage.image,
           let description = textField.text else {return}
@@ -72,7 +72,7 @@ class SharePostViewController: UIViewController {
       }
       
       DispatchQueue.main.async {
-        UIApplication.shared.keyWindow?.unlockTheView()
+       Router.window?.unlockTheView()
         self.tabBarController?.selectedIndex = 0
         Router.updateFeedIfNeeded(with: post)
       }

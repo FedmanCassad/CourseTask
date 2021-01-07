@@ -47,7 +47,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
               navigationController.viewControllers = [profileViewController]
               _ = self.tabBarController(self, shouldSelect: navigationController)
               self.selectedIndex = 2
-              UIApplication.shared.keyWindow?.unlockTheView()
+             Router.window?.unlockTheView()
             }
           }
         } else {
@@ -58,16 +58,16 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
               let profileViewController = ProfileViewController(user: user)
               navigationController.viewControllers = [profileViewController]
               self.selectedIndex = 2
-              UIApplication.shared.keyWindow?.unlockTheView()
+             Router.window?.unlockTheView()
             }
             else {
-                UIApplication.shared.keyWindow?.unlockTheView()
+               Router.window?.unlockTheView()
             }
           }
         }
       } else {
         DispatchQueue.main.async {
-          UIApplication.shared.keyWindow?.unlockTheView()
+         Router.window?.unlockTheView()
         }
       }
     }

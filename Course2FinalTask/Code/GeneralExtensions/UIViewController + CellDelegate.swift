@@ -47,7 +47,7 @@ extension UIViewController: FeedCellDelegate {
       navigationController.viewControllers.append(profileController)
       navigationController.pushViewController(destinationVC, animated: true)
     }
-    UIApplication.shared.keyWindow?.unlockTheView()
+   Router.window?.unlockTheView()
   }
 
   func goToSelectedProfile(user: User) {
@@ -73,7 +73,7 @@ extension UIViewController: FeedCellDelegate {
         navigationController.pushViewController(controller, animated: true)
       }
     }
-    UIApplication.shared.keyWindow?.unlockTheView()
+   Router.window?.unlockTheView()
   }
 
   func alert(completion: ((UIViewController) -> ())?) {

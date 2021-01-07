@@ -68,7 +68,7 @@ class FeedCell: UITableViewCell {
     imgView.addGestureRecognizer(doubleTapRecognizer)
     imgView.gestureRecognizers?[0].name = "bigPictureDoubleTapped"
     imgView.isUserInteractionEnabled = true
-    imgView.translatesAutoresizingMaskIntoConstraints = false
+//    imgView.translatesAutoresizingMaskIntoConstraints = false
     return imgView
   }()
   
@@ -108,16 +108,13 @@ class FeedCell: UITableViewCell {
     let imgView = UIImageView(image: img)
     
     imgView.tintColor = .white
-    imgView.translatesAutoresizingMaskIntoConstraints = false
+//    imgView.translatesAutoresizingMaskIntoConstraints = false
     return imgView
   }()
   
   
   func configure(with post: Post) {
 
-      
-    
-    
     self.post = post
     //MARK: - Initialising UIs with post data
     frame.size.width = UIScreen.main.bounds.width
@@ -152,12 +149,9 @@ class FeedCell: UITableViewCell {
 
     
     
-    likesLabel.text = "Likes: \(post.likedByCount)"
+ 
     commentLabel.text = post.description
-    if post.currentUserLikesThisPost {
-      likeButton.isSelected = true
-      likeButton.tintColor = .systemBlue
-    }
+  updateLikes()
     configureLayout()
     
   }
@@ -201,21 +195,21 @@ class FeedCell: UITableViewCell {
   
   //MARK: - Actions
   @objc func userSomeHowTapped(sender: UITapGestureRecognizer) {
-//    switch sender.name {
-//      case "bigPictureDoubleTapped":
-//        animateLike()
-//        likeTapped()
-//      case "avatarTapped":
-//        goToProfile()
-//      case "userNameTapped":
-//        goToProfile()
-//      case "likeTapped":
-//        likeTapped()
-//      case "listOfLikes":
-//        goToListView()
-//      default:
-//        return
-//    }
+    switch sender.name {
+      case "bigPictureDoubleTapped":
+        animateLike()
+        
+      case "avatarTapped":
+        goToProfile()
+      case "userNameTapped":
+        goToProfile()
+      case "likeTapped":
+        likeTapped()
+      case "listOfLikes":
+        goToListView()
+      default:
+        return
+    }
   }
   
   func animateLike() {
@@ -228,105 +222,94 @@ class FeedCell: UITableViewCell {
     animator.isAdditive = true
     animator.timingFunction = CAMediaTimingFunction(controlPoints: 0.15, 1, 0.85, 0)
     bigLike.layer.add(animator, forKey: "opacity")
+    likeTapped()
   }
   
   func goToListView() {
-//    UIApplication.shared.keyWindow?.lockTheView()
-//    DataProviders.shared.postsDataProvider.usersLikedPost(with: post.id, queue: .global(qos: .userInteractive)){[weak self] optUIDs in
-//      guard let self = self else {return}
-//      guard let userIds = optUIDs else {
-//        if let vc = self.delegate as? FeedTableViewController {
-//          vc.alert(completion: nil)
-//        }
-//        return}
-//      var users = Array<User>()
-//      
-//      userIds.forEach {[weak self] userID in
-//        guard let self = self else {return}
-//        DataProviders.shared.usersDataProvider.user(with: userID.id, queue: .global(qos: .userInteractive)){user in
-//          guard let user = user  else {
-//            if let vc = self.delegate as? FeedTableViewController {
-//              vc.alert(completion: nil)
-//            }
-//            return}
-//          users.append(user)
-//        }
-//      }
-//      DataProviders.shared.usersDataProvider.user(with: self.post.author, queue: .global(qos: .userInteractive)){user in
-//        guard let user = user else {
-//          if let vc = self.delegate as? FeedTableViewController {
-//            vc.alert(completion: nil)
-//          }
-//          return
-//        }
-//        DispatchQueue.main.async {
-//          self.delegate?.goToProfilesList(users: users, user: user, .follows)
-//        }
-//      }
-//    }
+     Router.window?.lockTheView()
+    NetworkEngine.shared.usersLikedSpecificPost(postID: post.id) {[weak self] optUsers in
+      guard let users = optUsers else {
+        if let vc = self?.delegate as? FeedTableViewController {
+          vc.alert(completion: nil)
+        }
+        return}
+      NetworkEngine.shared.getUser(id: self?.post.author ?? "") {user in
+        guard let user = user else {
+          if let vc = self?.delegate as? FeedTableViewController {
+            vc.alert(completion: nil)
+          }
+          return
+        }
+        DispatchQueue.main.async {
+          self?.delegate?.goToProfilesList(users: users, user: user, .follows)
+        }
+      }
+    }
   }
   
   func goToProfile() {
-//    UIApplication.shared.keyWindow?.lockTheView()
-//    DataProviders.shared.usersDataProvider.user(with: post.author, queue: .global(qos: .userInteractive )){[weak self] user in
-//      guard let self = self else {return}
-//      guard let user = user else {
-//        if let vc = self.delegate as? FeedTableViewController {
-//          vc.alert(completion: nil)
-//        }
-//        return}
-//      DispatchQueue.main.async {
-//        self.delegate?.goToSelectedProfile(user: user)
-//        UIApplication.shared.keyWindow?.unlockTheView()
-//      }
-//    }
-//
-//  }
-//
-//  func likeTapped() {
-//    if !likeButton.isSelected {
-//      likeButton.isSelected = true
-//      likeButton.tintColor = .systemBlue
-//      let group = DispatchGroup()
-//      group.enter()
-//      DataProviders.shared.postsDataProvider.likePost(with: post.id, queue: .global(qos: .userInteractive)){[weak self] post in
-//        guard let self = self else {return}
-//        guard  let receivedPost = post else {
-//          if let vc = self.delegate as? FeedTableViewController {
-//            vc.alert(completion: nil)
-//          }
-//          return
-//        }
-//        self.post = receivedPost
-//        self.post.currentUserLikesThisPost = true
-//        group.leave()
-//        group.wait()
-//        DispatchQueue.main.async {
-//          self.likesLabel.text = "Likes: \(self.post.likedByCount)"
-//          self.likesLabel.sizeToFit()
-//        }
-//      }
-//    } else {
-//      likeButton.isSelected = false
-//      likeButton.tintColor = .lightGray
-//      DataProviders.shared.postsDataProvider.unlikePost(with: post.id, queue: .global(qos: .userInteractive)) {[weak self] receivedPost in
-//        guard let self = self else {return}
-//        guard let updatePost = receivedPost else {
-//          if let vc = self.delegate as? FeedTableViewController {
-//            vc.alert(completion: nil)
-//          }
-//          return
-//        }
-//        self.post = updatePost
-//        self.post.currentUserLikesThisPost = false
-//        DispatchQueue.main.async {
-//          self.likesLabel.text = "Likes: \(self.post.likedByCount)"
-//          self.likesLabel.sizeToFit()
-//        }
-//      }
-//    }
+     Router.window?.lockTheView()
+    NetworkEngine.shared.getUser(id: post.author) {[weak self] user in
+
+      guard let user = user else {
+        if let vc = self?.delegate as? FeedTableViewController {
+          vc.alert(completion: nil)
+        }
+        return}
+      DispatchQueue.main.async {
+        self?.delegate?.goToSelectedProfile(user: user)
+       Router.window?.unlockTheView()
+      }
+    }
+
   }
- 
+
+  func likeTapped() {
+    if post.currentUserLikesThisPost {
+      NetworkEngine.shared.unlikePost(postID: post.id) { [weak self] post in
+        guard let self = self else { return }
+        guard let updatedPost = post else {
+          DispatchQueue.main.async {
+          if let vc = self.delegate as? FeedTableViewController {
+            vc.alert(completion: nil)
+          }}
+          return
+        }
+        
+        DispatchQueue.main.async {
+          self.post = updatedPost
+          self.updateLikes()
+        }
+        
+      }
+    } else {
+     
+        NetworkEngine.shared.likePost(postID: post.id) { [weak self] post in
+          guard let self = self else { return }
+          guard let updatedPost = post else {
+            DispatchQueue.main.async {
+            if let vc = self.delegate as? FeedTableViewController {
+              vc.alert(completion: nil)
+            }
+          }
+            return
+          }
+          DispatchQueue.main.async {
+            self.post = updatedPost
+            self.updateLikes()
+          }
+        }
+    
+  }
+  }
+
+  private func updateLikes() {
+    guard let post = post else { return }
+    likesLabel.text = "Likes: \(post.likedByCount)"
+    likesLabel.sizeToFit()
+    likeButton.isSelected = post.currentUserLikesThisPost ? true : false
+    likeButton.tintColor = post.currentUserLikesThisPost ? .systemBlue : .systemGray
+  }
   
 }
 

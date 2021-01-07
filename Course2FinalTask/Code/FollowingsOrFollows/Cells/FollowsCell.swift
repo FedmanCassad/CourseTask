@@ -59,7 +59,7 @@ class FollowsCell: UITableViewCell {
   }
   
   @objc func selectProfile() {
-    UIApplication.shared.keyWindow?.lockTheView()
+     Router.window?.lockTheView()
     delegate?.goToSelectedProfile(user: user)
   }
   

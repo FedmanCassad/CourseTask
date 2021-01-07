@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Post: Codable {
+public struct Post: Codable {
   var id, description, createdTime, author, authorUsername : String
   var image, authorAvatar: URL
   var currentUserLikesThisPost: Bool

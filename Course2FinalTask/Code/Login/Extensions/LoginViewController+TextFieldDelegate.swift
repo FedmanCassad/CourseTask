@@ -17,7 +17,7 @@ extension LoginViewController: UITextFieldDelegate {
     } else {
       if !isFieldsAreEmpty {
         view.endEditing(true)
-//        UIApplication.shared.windows.first?.lockTheView()
+        Router.window?.lockTheView()
         loginAttempt(login: loginNameTextField.text!, password: passwordTextField.text!)
         return true
       }

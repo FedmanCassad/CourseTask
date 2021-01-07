@@ -105,7 +105,6 @@ class HeaderView: UICollectionReusableView {
     followersLabel.text = "Followers: \(user.followedByCount)"
     followingsLabel.text = "Followings: \(user.followsCount)"
     configureLayout()
-    print(NetworkEngine.shared.currentUser?.id)
     logOutButton.isHidden =  user.id == NetworkEngine.shared.currentUser?.id ? false : true
   }
   
@@ -141,7 +140,7 @@ class HeaderView: UICollectionReusableView {
   
   //MARK: - Actions
   @objc func goToFollowersListView() {
-//    UIApplication.shared.keyWindow?.lockTheView()
+//     Router.window?.lockTheView()
     NetworkEngine.shared.usersFollowingUser(with: user.id) {[weak self] users in
       guard let self = self else {return}
       guard let users = users  else {
@@ -161,7 +160,7 @@ class HeaderView: UICollectionReusableView {
   
   
   @objc func goToFollowsListView() {
-//    UIApplication.shared.keyWindow?.lockTheView()
+//     Router.window?.lockTheView()
     NetworkEngine.shared.usersFollowedByUser(with: user.id) {[weak self] users in
       guard let self = self else {return}
       guard let users = users else {
@@ -176,12 +175,12 @@ class HeaderView: UICollectionReusableView {
   }
   
   @objc func followUnfollow () {
-//    UIApplication.shared.keyWindow?.lockTheView()
+//     Router.window?.lockTheView()
     if !user.currentUserFollowsThisUser {
       NetworkEngine.shared.follow(with: user.id){[weak self] recievedUser in
         guard let self = self else {return}
         guard let user = recievedUser else {
-          if let vc = self.delegate as? ProfileViewController {
+          if let vc = self.delegate as? ProfileViewController{
             vc.alert(completion: nil)
           }
           return
@@ -193,7 +192,7 @@ class HeaderView: UICollectionReusableView {
 
         DispatchQueue.main.async {
           self.configure(user: user)
-          UIApplication.shared.keyWindow?.unlockTheView()
+         Router.window?.unlockTheView()
         }
       }
     }
@@ -208,11 +207,11 @@ class HeaderView: UICollectionReusableView {
         }
         DispatchQueue.main.async {
           self.configure(user: user)
-          UIApplication.shared.keyWindow?.unlockTheView()
+         Router.window?.unlockTheView()
         }
         DispatchQueue.main.async {
           self.configure(user: user)
-          UIApplication.shared.keyWindow?.unlockTheView()
+         Router.window?.unlockTheView()
         }
       }
     }
