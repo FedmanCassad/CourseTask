@@ -66,6 +66,7 @@ class LoginViewController: UIViewController {
     button.titleLabel?.font = UIFont.systemFont(ofSize: 15)
     button.layer.cornerRadius = 5
     button.layer.opacity = 0.3
+    button.addTarget(self, action: #selector(signIn(sender:)), for: .touchUpInside)
     return button
   }()
   

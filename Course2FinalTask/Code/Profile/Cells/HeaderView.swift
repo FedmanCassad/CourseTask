@@ -93,7 +93,7 @@ class HeaderView: UICollectionReusableView {
     $0.backgroundColor = UIViewController.hexStringToUIColor(hex: "#007AFF")
     $0.layer.cornerRadius = 5
     $0.setTitleColor(.white, for: .normal)
-    $0.addTarget(self, action: #selector(logOut), for: .touchUpInside)
+    $0.addTarget(self, action: #selector(signOut), for: .touchUpInside)
     
     return $0
   }(UIButton())
@@ -107,7 +107,6 @@ class HeaderView: UICollectionReusableView {
     configureLayout()
     logOutButton.isHidden =  user.id == NetworkEngine.shared.currentUser?.id ? false : true
   }
-  
   
   private func configureLayout() {
     avatar.frame = CGRect(x: 8,
@@ -140,78 +139,98 @@ class HeaderView: UICollectionReusableView {
   
   //MARK: - Actions
   @objc func goToFollowersListView() {
-//     Router.window?.lockTheView()
-    NetworkEngine.shared.usersFollowingUser(with: user.id) {[weak self] users in
+    //     Router.window?.lockTheView()
+    NetworkEngine.shared.usersFollowingUser(with: user.id) {[weak self] result in
       guard let self = self else {return}
-      guard let users = users  else {
-        if let vc = self.delegate as? ProfileViewController {
-          vc.alert(completion: nil)
-        }
-        return}
-      DispatchQueue.main.async {
-        self.delegate?.goToProfilesList(users: users, user: self.user, .followers)
+      switch result {
+        case .failure(let error):
+          if let vc = self.delegate as? ProfileViewController {
+            vc.alert(error: error)
+          }
+        case .success(let users):
+          guard let users = users  else { return }
+          DispatchQueue.main.async {
+            self.delegate?.goToProfilesList(users: users, user: self.user, .followers)
+          }
+          
+          
       }
     }
   }
   
-  @objc func logOut() {
+  @objc func signOut() {
     Router.backToLoginView()
   }
   
   
   @objc func goToFollowsListView() {
-//     Router.window?.lockTheView()
-    NetworkEngine.shared.usersFollowedByUser(with: user.id) {[weak self] users in
+    Router.window?.lockTheView()
+    NetworkEngine.shared.usersFollowedByUser(with: user.id) {[weak self] result in
       guard let self = self else {return}
-      guard let users = users else {
-        if let vc = self.delegate as? ProfileViewController {
-          vc.alert(completion: nil)
-        }
-        return}
-      DispatchQueue.main.async {
-        self.delegate?.goToProfilesList(users: users, user: self.user, .follows)
+      switch result {
+        case .failure(let error):
+          if let vc = self.delegate as? ProfileViewController {
+            vc.alert(error: error)
+          }
+        case .success(let users):
+          
+          guard let users = users else { return }
+          DispatchQueue.main.async {
+            self.delegate?.goToProfilesList(users: users, user: self.user, .follows)
+          }
       }
     }
   }
   
   @objc func followUnfollow () {
-//     Router.window?.lockTheView()
+    Router.window?.lockTheView()
     if !user.currentUserFollowsThisUser {
-      NetworkEngine.shared.follow(with: user.id){[weak self] recievedUser in
+      NetworkEngine.shared.follow(with: user.id){[weak self] result in
         guard let self = self else {return}
-        guard let user = recievedUser else {
-          if let vc = self.delegate as? ProfileViewController{
-            vc.alert(completion: nil)
-          }
-          return
-        }
-        NetworkEngine.shared.currentUser {user in
-          guard let user = user else {return}
-          NetworkEngine.shared.currentUser = user
-        }
-
-        DispatchQueue.main.async {
-          self.configure(user: user)
-         Router.window?.unlockTheView()
+        switch result {
+          case .failure(let error):
+            if let vc = self.delegate as? ProfileViewController{
+              vc.alert(error: error)
+            }
+          case .success(let recievedUser):
+            guard let user = recievedUser else { return }
+            NetworkEngine.shared.currentUser {result in
+              switch result {
+                case .failure(let error):
+                  if let vc = self.delegate as? ProfileViewController{
+                    vc.alert(error: error)
+                  }
+                case .success(let user):
+                  guard let user = user else {return}
+                  NetworkEngine.shared.currentUser = user
+              }
+            }
+            
+            DispatchQueue.main.async {
+              self.configure(user: user)
+              Router.window?.unlockTheView()
+            }
         }
       }
     }
     else {
-      NetworkEngine.shared.unfollow(with: user.id){[weak self] recievedUser in
+      NetworkEngine.shared.unfollow(with: user.id){[weak self] result in
         guard let self = self else {return}
-        guard let user = recievedUser else {
-          if let vc = self.delegate as? ProfileViewController {
-            vc.alert(completion: nil)
-          }
-          return
-        }
-        DispatchQueue.main.async {
-          self.configure(user: user)
-         Router.window?.unlockTheView()
-        }
-        DispatchQueue.main.async {
-          self.configure(user: user)
-         Router.window?.unlockTheView()
+        switch result {
+          case .failure(let error):
+            if let vc = self.delegate as? ProfileViewController {
+              vc.alert(error: error)
+            }
+          case .success(let recievedUser):
+            guard let user = recievedUser else { return }
+            DispatchQueue.main.async {
+              self.configure(user: user)
+              Router.window?.unlockTheView()
+            }
+            DispatchQueue.main.async {
+              self.configure(user: user)
+              Router.window?.unlockTheView()
+            }
         }
       }
     }

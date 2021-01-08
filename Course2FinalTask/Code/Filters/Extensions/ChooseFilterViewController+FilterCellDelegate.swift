@@ -14,5 +14,5 @@ extension ChooseFilterViewController: FilterCellDelegate {
     guard let safeImage = filteredImage else {return}
     mainImageView.image = safeImage
   }
-  
+
 }

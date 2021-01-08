@@ -48,10 +48,13 @@ class Router: NSObject, NavigationCoordinator {
   }
   
   static func updateFeedIfNeeded(with post: Post) {
+    addImageNavigationController.viewControllers = [AddImageViewController()]
     feedViewController?.feed.insert(post, at: 0)
     feedViewController?.tableView.reloadData()
     feedViewController?.tableView.scrollToRow(at: .init(item: 0, section: 0), at: .top, animated: true)
     feedNavigationController.popToRootViewController(animated: true)
+    tabBarController.selectedIndex = 0
+   
   }
   
   

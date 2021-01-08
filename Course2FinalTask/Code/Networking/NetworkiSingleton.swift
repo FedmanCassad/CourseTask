@@ -46,13 +46,13 @@ class NetworkEngine {
     var request = URLRequest(url: target.url)
     request.setValue("application/json", forHTTPHeaderField: "Content-Type")
     if let token = token {
-    request.setValue(token, forHTTPHeaderField: "token")
+      request.setValue(token, forHTTPHeaderField: "token")
     }
     switch target {
       case .feed:
-return request
+        return request
       case .getCurrentUser:
-      return request
+        return request
       case let .signIn(_, login, password):
         let parameters = [
           "login": login,
@@ -63,9 +63,9 @@ return request
       case .findPosts:
         return request
       case .userFollowed:
-      return request
+        return request
       case .userFollowings:
-     return request
+        return request
       case .follow(_, let id):
         let parameters = [
           "userID": id
@@ -104,29 +104,24 @@ return request
         ]
         request.httpMethod = HTTPMethod.POST.strigifiedMethod
         request.httpBody = try? JSONSerialization.data(withJSONObject: parameters)
+      case .signOut:
+        return request
     }
     return request
   }
   
-
-func performRequest<T: Decodable>(for target: Target<T.Type>, completion: @escaping (Result<T?, DataError>) -> Void) {
+  
+  func performRequest<T: Decodable>(for target: Target<T.Type>, completion: @escaping (Result<T?, DataError>) -> Void) {
     guard let request = constructRequest(for: target) else
     { return }
     let session = getURLSession()
     session.dataTask(with: request) { [self] (data, response, error) in
       if error != nil {
-        completion(.failure(.noDataRecieved))
-      }
-      if let response = response as? HTTPURLResponse {
-        switch response.statusCode {
-          case 404:
-            completion(.failure(.requestError(errorCode: response)))
-          case 406:
-            completion(.failure(.requestError(errorCode: response)))
-          default:
-            print(response.statusCode)
+        if let response = response as? HTTPURLResponse {
+              completion(.failure(.requestError(errorCode: response)))
         }
       }
+      
       guard let data = data else {
         completion(.failure(.noDataRecieved))
         return
@@ -201,6 +196,8 @@ func performRequest<T: Decodable>(for target: Target<T.Type>, completion: @escap
           } else {
             completion(.failure(.parsingFailed))
           }
+        case .signOut:
+          completion(.success(true as? T))
       }
     }.resume()
   }
@@ -210,13 +207,13 @@ func performRequest<T: Decodable>(for target: Target<T.Type>, completion: @escap
     performRequest(for: .signIn(Bool.self, login: login, password: password)) { result in
       switch result {
         case let .failure(error):
-          print(error.localizedDescription)
+          print(error.description)
           return
         case .success(_):
           NetworkEngine.shared.performRequest(for: .feed([Post].self)) { result in
             switch result {
               case let .failure(error):
-                print(error.localizedDescription)
+                print(error.description)
                 return
               case let .success(feed):
                 if let feed = feed {
@@ -238,144 +235,145 @@ func performRequest<T: Decodable>(for target: Target<T.Type>, completion: @escap
   }
   
   //MARK: - Find posts function
-  func findPosts(by: String, handler: @escaping ([Post]?) -> ()) {
+  func findPosts(by: String, handler: @escaping (Result<[Post]?, DataError>) -> ()) {
     performRequest(for: .findPosts([Post].self, by)) {result in
       switch result {
         case let .failure(error):
-          print(error.localizedDescription)
+          handler(.failure(error))
         case let .success(posts):
-          handler(posts)
+          handler(.success(posts))
       }
     }
   }
   
   //MARK: - Find followers
-  func usersFollowingUser(with userID: String, handler: @escaping ([User]?) -> ()) {
+  func usersFollowingUser(with userID: String, handler: @escaping (Result<[User]?, DataError>) -> ()) {
     performRequest(for: .userFollowed([User].self, userID)) {result in
       switch result {
         case let .failure(error):
-          print(error.localizedDescription)
+          handler(.failure(error))
         case let .success(users):
-          handler(users)
+          handler(.success(users))
       }
     }
   }
+  
   //MARK: - Find followings
-  func usersFollowedByUser(with userID: String, handler: @escaping ([User]?) -> ()) {
+  func usersFollowedByUser(with userID: String, handler: @escaping (Result<[User]?, DataError>) -> ()) {
     performRequest(for: .userFollowings([User].self, userID)) {result in
       switch result {
         case let .failure(error):
-          print(error.localizedDescription)
+          handler(.failure(error))
         case let .success(users):
-          handler(users)
+          handler(.success(users))
       }
     }
   }
   //MARK: - Follow function
-  func follow(with userID: String, handler: @escaping (User?) -> ()) {
+  func follow(with userID: String, handler: @escaping (Result<User?, DataError>) -> ()) {
     performRequest(for: .follow(User.self, userID)) {result in
       switch result {
         case let .failure(error):
-          print(error.localizedDescription)
-          handler(nil)
+          handler(.failure(error))
         case let .success(user):
-          handler(user)
+          handler(.success(user))
       }
     }
   }
   
   //MARK: - Unfollow function
-  func unfollow(with userID: String, handler: @escaping (User?) -> ()) {
+  func unfollow(with userID: String, handler: @escaping (Result<User?, DataError>) -> ()) {
     performRequest(for: .unfollow(User.self, userID)) {result in
       switch result {
         case let .failure(error):
-          print(error.localizedDescription)
-          handler(nil)
+        
+          handler(.failure(error))
         case let .success(user):
-          handler(user)
+          handler(.success(user))
       }
     }
   }
   
-  func currentUser(handler: @escaping (User?) -> ()) {
+  //MARK: - Get current user
+  func currentUser(handler: @escaping (Result<User?, DataError>) -> ()) {
     performRequest(for: .getCurrentUser(User.self)) {result in
       switch result {
         case let .failure(error):
-          print(error.localizedDescription)
-          handler(nil)
+          handler(.failure(error))
         case let .success(user):
           self.currentUser = user
-          handler(user)
+          handler(.success(user))
       }
     }
   }
   
-  func uploadPost(image: UIImage, description: String, handler: @escaping (Post?) -> ()) {
+  //MARK: - Upload post
+  func uploadPost(image: UIImage, description: String, handler: @escaping (Result<Post?, DataError>) -> ()) {
     performRequest(for: .uploadPost(Post.self, image: image, description: description)) {result in
       switch result {
         case .failure(let error):
-          print(error.localizedDescription)
-          handler(nil)
+          handler(.failure(error))
         case .success(let post):
-          handler(post)
+          handler(.success(post))
       }
     }
   }
   
-  func getUser(id: String, handler: @escaping (User?) -> ()) {
+  //MARK: - Get user by id
+  func getUser(id: String, handler: @escaping (Result<User?, DataError>) -> ()) {
     performRequest(for: .getUser(User.self, id)) { result in
       switch result {
         case let .success(user):
-          handler(user)
+          handler(.success(user))
         case let .failure(error):
-          print(error.localizedDescription)
-          handler(nil)
+          handler(.failure(error))
       }
     }
   }
   
-  func usersLikedSpecificPost(postID: String, handler: @escaping ([User]?) -> ()) {
+  //MARK: - Get users liked specific post
+  func usersLikedSpecificPost(postID: String, handler: @escaping (Result<[User]?, DataError>) -> ()) {
     performRequest(for: .usersLikesSpecificPost([User].self, postID: postID)) {result in
       switch result {
         case let .success(users):
-          handler(users)
+          handler(.success(users))
         case let .failure(error):
-          print(error.localizedDescription)
-        handler(nil)
+          handler(.failure(error))
       }
-      
     }
   }
   
-  func likePost(postID: String, handler: @escaping (Post?) -> ()) {
+  //MARK: - Like post
+  func likePost(postID: String, handler: @escaping (Result<Post?, DataError>) -> ()) {
     performRequest(for: .likePost(Post.self, postID: postID)) {result in
       switch result {
         case .failure(let error):
-          print(error.localizedDescription)
-          handler(nil)
+          handler(.failure(error))
         case .success(let post):
-          handler(post)
+          handler(.success(post))
       }
-      
     }
   }
   
-  func unlikePost(postID: String, handler: @escaping (Post?) -> ()) {
+  //MARK: - Unlike post
+  func unlikePost(postID: String, handler: @escaping (Result<Post?, DataError>) -> ()) {
     performRequest(for: .unlikePost(Post.self, postID: postID)) {result in
       switch result {
         case .failure(let error):
-          print(error.localizedDescription)
-          handler(nil)
+          handler(.failure(error))
         case .success(let post):
-          handler(post)
+          handler(.success(post))
       }
     }
   }
   
+  //MARK: - Logout func
   func logOut() {
-    currentUser = nil
-    token = nil
-  }
+    performRequest(for: .signOut(Bool.self)) {_ in
+          self.currentUser = nil
+          self.token = nil
+      }
+    }
   
   private func getURLSession() -> URLSession {
     return URLSession(configuration: .default)

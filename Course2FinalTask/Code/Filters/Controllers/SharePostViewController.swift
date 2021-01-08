@@ -64,17 +64,18 @@ class SharePostViewController: UIViewController {
     guard let image = postImage.image,
           let description = textField.text else {return}
     
-    NetworkEngine.shared.uploadPost(image: image, description: description) {[weak self] post in
+    NetworkEngine.shared.uploadPost(image: image, description: description) {[weak self] result in
       guard let self = self else {return}
-      guard let post = post else {
-        self.alert(completion: nil)
-        return
-      }
-      
-      DispatchQueue.main.async {
-       Router.window?.unlockTheView()
-        self.tabBarController?.selectedIndex = 0
-        Router.updateFeedIfNeeded(with: post)
+      switch result {
+        case .failure(let error):
+          self.alert(error: error)
+        case .success(let post):
+          if let post = post {
+            DispatchQueue.main.async {
+             Router.window?.unlockTheView()
+              Router.updateFeedIfNeeded(with: post)
+            }
+          }
       }
     }
   }

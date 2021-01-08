@@ -54,7 +54,6 @@ extension UIViewController: FeedCellDelegate {
     _ = ProfileViewController(user: user){[self] controller in
       guard let tabBarController = self.tabBarController else
       {return}
-      print(controller)
       tabBarController.selectedIndex = 2
       guard let navigationController = tabBarController.selectedViewController as? UINavigationController else {return}
       guard !navigationController.viewControllers.isEmpty else {
@@ -63,10 +62,8 @@ extension UIViewController: FeedCellDelegate {
         return
       }
       if navigationController.viewControllers[0] is ProfileViewController {
-        print("Дебажу принтом раз \(navigationController.viewControllers)")
         controller.configure(user: user)
         navigationController.pushViewController(controller, animated: true)
-        print("Дебажу принтом 2 \(navigationController.viewControllers)")
       }
       else {
         controller.configure(user: user)
@@ -76,8 +73,8 @@ extension UIViewController: FeedCellDelegate {
    Router.window?.unlockTheView()
   }
 
-  func alert(completion: ((UIViewController) -> ())?) {
-    let alertController = UIAlertController(title: "Unknown error!", message: "Please try again later", preferredStyle: .alert)
+  func alert(error: DataError) {
+    let alertController = UIAlertController(title: error.description.0, message: error.description.1, preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
     self.present(alertController, animated: true, completion: nil)
   }

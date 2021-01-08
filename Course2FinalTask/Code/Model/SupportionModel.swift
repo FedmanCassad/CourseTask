@@ -12,22 +12,36 @@ enum DestinationMeaning {
   case follows
 }
 
+
 public enum DataError: Error {
   case noDataRecieved
   case noTokenParsed
   case requestError(errorCode: HTTPURLResponse)
   case parsingFailed
-  var localizedDescription: String {
+  var description: (String, String) {
     switch self {
       case
         .noDataRecieved:
-        return "Data task cannot retrieve the data piece"
+        return ("No data recieved", "Data task cannot retrieve the data piece")
       case .noTokenParsed:
-        return "Cannot get token from recieved data"
-      case .requestError:
-        return "Something wrong with performed request"
+        return ("Can't parse a token", "Cannot get token from recieved data")
       case .parsingFailed:
-        return "Failed to decode recieved data"
+        return ("Parsing error", "Failed to decode recieved data")
+      case .requestError(let errorCode):
+        switch errorCode.statusCode {
+          case 404:
+            return ("404", "Not found")
+          case 400:
+            return ("400", "Bad request")
+          case 401:
+            return ("401", "Unauthorized")
+          case 406:
+            return ("406", "Not acceptable")
+          case 422:
+            return ("422", "Unprocessable")
+          default:
+            return ("Unknown error", "Unknown error")
+        }
     }
   }
 }
@@ -48,6 +62,7 @@ public enum DataError: Error {
     case usersLikesSpecificPost(_ type: T, postID: String)
     case likePost(_ type: T, postID: String)
     case unlikePost(_ type: T, postID: String)
+    case signOut(_ type: T)
     var url: URL {
       switch self {
         case .feed:
@@ -76,6 +91,8 @@ public enum DataError: Error {
           return URL(string:"http://localhost:8080/posts/like")!
         case .unlikePost:
           return URL(string:"http://localhost:8080/posts/unlike")!
+        case .signOut:
+          return URL(string: "http://localhost:8080/signout")!
       }
     }
     
