@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DataProvider
+
 
 class ProfilePhotosCell: UICollectionViewCell {
 
@@ -18,7 +18,7 @@ class ProfilePhotosCell: UICollectionViewCell {
   
   final func configure(post: Post){
     contentView.clipsToBounds = true
-    image.image = post.image
+    image.kf.setImage(with: post.image)
     image.frame.size = CGSize(width: UIScreen.main.bounds.width/3-1, height: 0 )
     image.frame.size.height = image.frame.width
     contentView.frame = image.bounds

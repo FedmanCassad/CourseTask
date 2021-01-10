@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DataProvider
 
 protocol FeedCellDelegate {
   func goToSelectedProfile(user: User)

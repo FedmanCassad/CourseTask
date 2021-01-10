@@ -17,7 +17,7 @@ extension FollowersFollowsTableViewController: UITableViewDelegate {
   
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
       guard let cell =  tableView.cellForRow(at: indexPath) as? FollowsCell else {return}
-      UIApplication.shared.keyWindow?.lockTheView()
+       Router.window?.lockTheView()
       goToSelectedProfile(user: cell.user)
     }
   

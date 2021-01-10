@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DataProvider
+
 
 extension ChooseFilterViewController: UICollectionViewDelegateFlowLayout {
   

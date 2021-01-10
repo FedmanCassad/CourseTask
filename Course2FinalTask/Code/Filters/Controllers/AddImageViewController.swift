@@ -7,12 +7,17 @@
 //
 
 import UIKit
-import DataProvider
 
 class AddImageViewController: UIViewController {
   
-  lazy var imageLibrary: [UIImage]  = {
-    return DataProviders.shared.photoProvider.photos()
+  lazy var imageLibrary: [UIImage?]  = {
+    var images = Array<UIImage?>()
+    guard let filesCount = Bundle.main.urls(forResourcesWithExtension: "jpg", subdirectory: nil)?.count else { return [nil] }
+          for i in 1...filesCount {
+            let path = Bundle.main.path(forResource: "new\(i)", ofType: "jpg")
+            images.append(UIImage(contentsOfFile: path!) ?? nil)
+          }
+    return images
   }()
   
   init() {

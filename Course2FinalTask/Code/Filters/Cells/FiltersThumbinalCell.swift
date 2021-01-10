@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DataProvider
 
 class FiltersThumbinalCell: UICollectionViewCell {
   private lazy var thumbinalImage: UIImageView = {

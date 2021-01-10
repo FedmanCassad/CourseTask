@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DataProvider
+
 class FollowsCell: UITableViewCell {
   var user: User!
   var delegate: FeedCellDelegate?
@@ -42,8 +42,8 @@ class FollowsCell: UITableViewCell {
     translatesAutoresizingMaskIntoConstraints = false
     
     self.user = user
-    
-    avatarImage.image = user.avatar
+    //Оставим это на техдолг
+    avatarImage.kf.setImage(with: URL(string: user.avatar)!)
     avatarImage.frame = CGRect(x: 15, y: 0, width: 45, height: 45)
     
     userName.text = user.username
@@ -59,7 +59,7 @@ class FollowsCell: UITableViewCell {
   }
   
   @objc func selectProfile() {
-    UIApplication.shared.keyWindow?.lockTheView()
+     Router.window?.lockTheView()
     delegate?.goToSelectedProfile(user: user)
   }
   
