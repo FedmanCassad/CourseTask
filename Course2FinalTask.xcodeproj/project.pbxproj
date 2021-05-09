@@ -12,6 +12,8 @@
 		BA7E439D4D32A5C3E660E37A /* Pods_Course2FinalTask.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AECEABE3CC4809F2CD7B808 /* Pods_Course2FinalTask.framework */; };
 		D82D4D0D25326915007B3BAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D82D4D0C25326915007B3BAA /* LaunchScreen.storyboard */; };
 		D82D4D0F25326ED0007B3BAA /* UIWindow+BlockingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82D4D0E25326ED0007B3BAA /* UIWindow+BlockingView.swift */; };
+		D83214462647406300E0AF35 /* OfflineCache.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D83214442647406300E0AF35 /* OfflineCache.xcdatamodeld */; };
+		D83214492647505500E0AF35 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83214482647505500E0AF35 /* CoreDataService.swift */; };
 		D85B1A3A24B53D9E007925F1 /* UIViewController + CellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85B1A3924B53D9E007925F1 /* UIViewController + CellDelegate.swift */; };
 		D85C54C5253BA4BC0038D68B /* ChooseFilterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C54C4253BA4BC0038D68B /* ChooseFilterViewController.swift */; };
 		D85C54C7253BB6FC0038D68B /* FiltersThumbinalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85C54C6253BB6FC0038D68B /* FiltersThumbinalCell.swift */; };
@@ -63,6 +65,8 @@
 		D8DCBF422575A122007C7F5F /* UIViewController+HexConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DCBF412575A122007C7F5F /* UIViewController+HexConverter.swift */; };
 		D8DCBF452575A2A9007C7F5F /* LoginViewController+TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8DCBF442575A2A9007C7F5F /* LoginViewController+TextFieldDelegate.swift */; };
 		D8F4F1F324BA54F700D74CA8 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F4F1F224BA54F700D74CA8 /* ProfileViewController.swift */; };
+		D8F625162644817400B78578 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F625152644817400B78578 /* KeychainService.swift */; };
+		D8F62519264491E600B78578 /* LoginManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8F62518264491E600B78578 /* LoginManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,6 +92,9 @@
 		BE3B7B6342258EA250986AF2 /* Pods-Course2FinalTask.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Course2FinalTask.debug.xcconfig"; path = "Target Support Files/Pods-Course2FinalTask/Pods-Course2FinalTask.debug.xcconfig"; sourceTree = "<group>"; };
 		D82D4D0C25326915007B3BAA /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D82D4D0E25326ED0007B3BAA /* UIWindow+BlockingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWindow+BlockingView.swift"; sourceTree = "<group>"; };
+		D83214452647406300E0AF35 /* OfflineCache.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = OfflineCache.xcdatamodel; sourceTree = "<group>"; };
+		D832144726474D3D00E0AF35 /* OfflineCache 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "OfflineCache 2.xcdatamodel"; sourceTree = "<group>"; };
+		D83214482647505500E0AF35 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 		D85B1A3924B53D9E007925F1 /* UIViewController + CellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + CellDelegate.swift"; sourceTree = "<group>"; };
 		D85C54C4253BA4BC0038D68B /* ChooseFilterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseFilterViewController.swift; sourceTree = "<group>"; };
 		D85C54C6253BB6FC0038D68B /* FiltersThumbinalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiltersThumbinalCell.swift; sourceTree = "<group>"; };
@@ -139,6 +146,8 @@
 		D8DCBF412575A122007C7F5F /* UIViewController+HexConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HexConverter.swift"; sourceTree = "<group>"; };
 		D8DCBF442575A2A9007C7F5F /* LoginViewController+TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LoginViewController+TextFieldDelegate.swift"; sourceTree = "<group>"; };
 		D8F4F1F224BA54F700D74CA8 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		D8F625152644817400B78578 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
+		D8F62518264491E600B78578 /* LoginManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,7 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				D8B1363F2579B1570066EB2B /* Router */,
-				D8B5C9BA2576E18700B21F62 /* Networking */,
+				D8B5C9BA2576E18700B21F62 /* Services */,
 				D835AD6325768992004B252D /* Protocols */,
 				D88189A1257456E30023D2A4 /* Login */,
 				D85DF9DD2537ADE300F947AC /* Filters */,
@@ -366,6 +375,7 @@
 			children = (
 				D8B5C9BF2577132A00B21F62 /* Codables */,
 				D878391F24C654590096B051 /* SupportionModel.swift */,
+				D83214442647406300E0AF35 /* OfflineCache.xcdatamodeld */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -417,6 +427,8 @@
 		D88189A1257456E30023D2A4 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				D8F625172644826200B78578 /* LoginManager */,
+				D8F62514264480C600B78578 /* KeychainService */,
 				D835AD662576A892004B252D /* Controllers */,
 				D8DCBF432575A299007C7F5F /* Extensions */,
 			);
@@ -465,12 +477,13 @@
 			path = Router;
 			sourceTree = "<group>";
 		};
-		D8B5C9BA2576E18700B21F62 /* Networking */ = {
+		D8B5C9BA2576E18700B21F62 /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				D8B5C9BB2576E24400B21F62 /* NetworkiSingleton.swift */,
+				D83214482647505500E0AF35 /* CoreDataService.swift */,
 			);
-			path = Networking;
+			path = Services;
 			sourceTree = "<group>";
 		};
 		D8B5C9BF2577132A00B21F62 /* Codables */ = {
@@ -514,6 +527,22 @@
 				D8A3057424BB5D35009A2014 /* ProfilePhotosCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		D8F62514264480C600B78578 /* KeychainService */ = {
+			isa = PBXGroup;
+			children = (
+				D8F625152644817400B78578 /* KeychainService.swift */,
+			);
+			path = KeychainService;
+			sourceTree = "<group>";
+		};
+		D8F625172644826200B78578 /* LoginManager */ = {
+			isa = PBXGroup;
+			children = (
+				D8F62518264491E600B78578 /* LoginManager.swift */,
+			);
+			path = LoginManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -647,6 +676,7 @@
 				D85C54D6253C91D70038D68B /* ChooseFilterViewController+FilterCellDelegate.swift in Sources */,
 				D8B5C9C12577133800B21F62 /* Post.swift in Sources */,
 				D878392A24C65BDE0096B051 /* FollowersFollowsTableView + TableViewDelegate.swift in Sources */,
+				D83214492647505500E0AF35 /* CoreDataService.swift in Sources */,
 				D8A3057224BA57CA009A2014 /* HeaderView.swift in Sources */,
 				D85DF9E4253B8D8500F947AC /* AddImageViewController+CollectionViewDataSource.swift in Sources */,
 				D85B1A3A24B53D9E007925F1 /* UIViewController + CellDelegate.swift in Sources */,
@@ -656,6 +686,7 @@
 				D85C54D8253CDC0A0038D68B /* SharePostViewController.swift in Sources */,
 				D8B5C9BE2577072F00B21F62 /* LoginViewController+LoginFlow.swift in Sources */,
 				D878392024C654590096B051 /* SupportionModel.swift in Sources */,
+				D8F62519264491E600B78578 /* LoginManager.swift in Sources */,
 				D8A3057524BB5D35009A2014 /* ProfilePhotosCell.swift in Sources */,
 				D85DF9E6253B8EF400F947AC /* AddImageViewController+CollectionViewLayoutDelegate.swift in Sources */,
 				D85C54CE253C75700038D68B /* ChooseFilterViewController+CollectionViewDataSource.swift in Sources */,
@@ -666,6 +697,7 @@
 				D8B136432579B7B60066EB2B /* User.swift in Sources */,
 				D85C54D1253C78AA0038D68B /* ChooseFilterViewController+CollectionViewFlowDeleagate.swift in Sources */,
 				D85C54CA253C6AEA0038D68B /* FiltersThumbinalCellInterface.swift in Sources */,
+				D8F625162644817400B78578 /* KeychainService.swift in Sources */,
 				D878391624C64D500096B051 /* FeedTableViewController + UITableViewDelegate.swift in Sources */,
 				D8AEA13B24C2410C0010D67C /* FollowsCell.swift in Sources */,
 				D8F4F1F324BA54F700D74CA8 /* ProfileViewController.swift in Sources */,
@@ -680,6 +712,7 @@
 				D85C54DC253DF8720038D68B /* SharePostViewController+TextFieldDelegate.swift in Sources */,
 				D8D64D3B25859730003A87D3 /* NavigationCoordinator.swift in Sources */,
 				D88189A3257456FB0023D2A4 /* LoginViewController.swift in Sources */,
+				D83214462647406300E0AF35 /* OfflineCache.xcdatamodeld in Sources */,
 				D85DF9E9253B8FB100F947AC /* FiltersFullSizeCell.swift in Sources */,
 				D85DF9E02537AE1200F947AC /* AddImageViewController.swift in Sources */,
 				D878392524C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift in Sources */,
@@ -880,6 +913,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		D83214442647406300E0AF35 /* OfflineCache.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				D832144726474D3D00E0AF35 /* OfflineCache 2.xcdatamodel */,
+				D83214452647406300E0AF35 /* OfflineCache.xcdatamodel */,
+			);
+			currentVersion = D832144726474D3D00E0AF35 /* OfflineCache 2.xcdatamodel */;
+			path = OfflineCache.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 74B7924C202B3254006BCB41 /* Project object */;
 }

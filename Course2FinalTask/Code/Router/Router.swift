@@ -22,6 +22,7 @@ class Router: NSObject, NavigationCoordinator {
   
   override private init() {}
   static func entryPoint(feed: [Post], currentUser: User) {
+    DispatchQueue.main.async {
     let feedImage = UIImage(named: "feed")
     let profileImage = UIImage(named: "profile")
     let addImage = UIImage(named: "plus")
@@ -39,6 +40,7 @@ class Router: NSObject, NavigationCoordinator {
     tabBarController.tabBar.unselectedItemTintColor = .lightGray
     window?.rootViewController = tabBarController
     window?.makeKeyAndVisible()
+    }
   }
   
   static func backToLoginView() {
@@ -56,7 +58,4 @@ class Router: NSObject, NavigationCoordinator {
     tabBarController.selectedIndex = 0
    
   }
-  
-  
-  
 }

@@ -17,10 +17,9 @@ extension ChooseFilterViewController: UICollectionViewDataSource {
   
   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FiltersThumbinalCell", for: indexPath) as! FiltersThumbinalCell
-    guard let image = protectedImage else {return cell}
-    cell.configure(image: image, filterName: effectsKeys[indexPath.item])
+    guard let image = protectedImage else { return cell }
     cell.delegate = self
+    cell.configure(image: image, filterName: effectsKeys[indexPath.item])
     return cell
   }
-  
 }

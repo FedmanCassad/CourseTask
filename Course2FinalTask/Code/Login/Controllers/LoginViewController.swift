@@ -9,8 +9,8 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-  
-  
+  let coreDataService: CoreDataService = CoreDataService(modelName: "OfflineCache")
+  var loginManager = LoginManager()
   var isFieldsAreEmpty: Bool  {
     guard let loginString = loginNameTextField.text,
           let passwordString = passwordTextField.text else {
@@ -74,10 +74,48 @@ class LoginViewController: UIViewController {
     view.backgroundColor = .white
   }
   
+  override func viewDidAppear(_ animated: Bool) {
+    super.viewDidAppear(animated)
+    if loginManager.hasToken {
+      loginManager.validateToken {[weak self] result in
+        switch result {
+        case .failure(let error):
+          Router.window?.unlockTheView()
+          self?.alert(error: error)
+        case .success(_):
+          guard let user = self?.loginManager.currentUser  else {
+            self?.alert(error: ErrorHandlingDomain.unknownError)
+            Router.window?.unlockTheView()
+            return
+          }
+          self?.networkEngine.getFeed {result in
+            switch result {
+            case .failure(let error):
+              Router.window?.unlockTheView()
+              self?.alert(error: error)
+            case .success(let feed):
+              DispatchQueue.main.async {
+                self?.loginNameTextField.text = "•••••••••••••"
+                self?.passwordTextField.text = "•••••••••••••"
+                Router.window?.unlockTheView()
+              }
+              DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                Router.entryPoint(feed: feed, currentUser: user)
+              }
+            }
+          }
+        }
+      }
+    } else {
+      Router.window?.unlockTheView()
+    }
+  }
+  
   override func viewDidLayoutSubviews() {
     view.addSubview(loginNameTextField)
     view.addSubview(passwordTextField)
     view.addSubview(signInButton)
+    
   }
 }
 

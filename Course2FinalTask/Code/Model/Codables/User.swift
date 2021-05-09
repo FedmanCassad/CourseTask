@@ -8,20 +8,8 @@
 
 import Foundation
 
-public struct User: Codable {
+public class User: Codable {
   var id, username, fullName, avatar: String
   var currentUserFollowsThisUser, currentUserIsFollowedByThisUser: Bool
   var followsCount, followedByCount: Int
-  
-  init() {
-    id = ""
-    username = ""
-    fullName = ""
-    avatar = ""
-    currentUserFollowsThisUser = false
-    currentUserIsFollowedByThisUser = false
-    followsCount = 0
-    followedByCount = 0
-  }
-  
 }

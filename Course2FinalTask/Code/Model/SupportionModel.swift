@@ -12,21 +12,29 @@ enum DestinationMeaning {
   case follows
 }
 
-
-public enum DataError: Error {
+public enum ErrorHandlingDomain: Error {
   case noDataRecieved
   case noTokenParsed
   case requestError(errorCode: HTTPURLResponse)
   case parsingFailed
-  var description: (String, String) {
+  case wrongCredentials
+  case tokenExpired
+  case unknownError
+  var localizedDescription: (String, String) {
     switch self {
       case
         .noDataRecieved:
         return ("No data recieved", "Data task cannot retrieve the data piece")
       case .noTokenParsed:
-        return ("Can't parse a token", "Cannot get token from recieved data")
+        return ("Cannot parse a token", "Cannot get token from recieved data")
       case .parsingFailed:
         return ("Parsing error", "Failed to decode recieved data")
+    case .wrongCredentials:
+      return ("Login failed", "Wrong credentials provided")
+    case .tokenExpired:
+      return ("Token expired", "Please sign in")
+    case .unknownError:
+      return ("Unidentified error", "Something goes wrong")
       case .requestError(let errorCode):
         switch errorCode.statusCode {
           case 404:
@@ -42,6 +50,7 @@ public enum DataError: Error {
           default:
             return ("Unknown error", "Unknown error")
         }
+
     }
   }
 }
@@ -95,7 +104,6 @@ public enum DataError: Error {
           return URL(string: "http://localhost:8080/signout")!
       }
     }
-    
   }
   
 

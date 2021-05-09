@@ -72,11 +72,15 @@ extension UIViewController: FeedCellDelegate {
     }
    Router.window?.unlockTheView()
   }
+}
 
-  func alert(error: DataError) {
-    let alertController = UIAlertController(title: error.description.0, message: error.description.1, preferredStyle: .alert)
+//MARK: - Error displaying
+extension UIViewController {
+  func alert(error: ErrorHandlingDomain) {
+    let alertController = UIAlertController(title: error.localizedDescription.0, message: error.localizedDescription.1, preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-    self.present(alertController, animated: true, completion: nil)
+    DispatchQueue.main.async {
+      self.present(alertController, animated: true, completion: nil)
+    }
   }
-
 }

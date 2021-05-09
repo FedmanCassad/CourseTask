@@ -12,13 +12,22 @@ import UIKit
 extension ChooseFilterViewController: UICollectionViewDelegateFlowLayout {
   
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    var size = CGSize(width: 120, height: collectionView.frame.height)
-    size.height = size.width
-    return size
+    return collectionView.frame.size
   }
-  
+
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-    return 16
+    return 0
+  }
+
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+    0
   }
   
+  func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    let visibleRect = CGRect(origin: scrollView.contentOffset, size: filterThumbnails.bounds.size)
+    let visiblePoint = CGPoint(x: visibleRect.midX, y: visibleRect.midY)
+    if let visibleIndexPath = filterThumbnails.indexPathForItem(at: visiblePoint) {
+      pageControl.currentPage = visibleIndexPath.item
+    }
+  }
 }

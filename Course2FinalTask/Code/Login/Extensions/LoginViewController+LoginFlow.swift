@@ -8,9 +8,33 @@
 
 import UIKit
 extension LoginViewController {
-  
+  var networkEngine: NetworkEngine {
+    return NetworkEngine.shared
+  }
   func loginAttempt(login: String, password: String) {
-    NetworkEngine.shared.loginAndMoveToFeed(login: login, password: password)
+    loginManager.getToken(login: login, password: password) {[weak self] result in
+      switch result {
+      case .failure(let error):
+        Router.window?.unlockTheView()
+        self?.alert(error: error)
+      case .success(_):
+        guard let user = self?.loginManager.currentUser else {
+          Router.window?.unlockTheView()
+          self?.alert(error: ErrorHandlingDomain.unknownError)
+          return
+        }
+        self?.networkEngine.getFeed {result in
+          switch result {
+          case .failure(let error):
+            Router.window?.unlockTheView()
+            self?.alert(error: error)
+          case .success(let feed):
+            Router.window?.unlockTheView()
+            Router.entryPoint(feed: feed, currentUser: user)
+          }
+        }
+      }
+    }
   }
   
   @objc func signIn(sender: UIButton) {
@@ -18,5 +42,4 @@ extension LoginViewController {
       Router.window?.lockTheView()
       loginAttempt(login: loginNameTextField.text!, password: passwordTextField.text!)
   }
-  
 }
