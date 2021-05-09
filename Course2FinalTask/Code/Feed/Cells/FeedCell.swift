@@ -11,6 +11,7 @@ import Kingfisher
 
 class FeedCell: UITableViewCell {
   var post: Post!
+  var managedPost: ManagedPost!
   var delegate: FeedCellDelegate?
   
   var doubleTapRecognizer: UITapGestureRecognizer {
@@ -131,10 +132,14 @@ class FeedCell: UITableViewCell {
     } else {
       timeStamp.text = formatter.string(from: date)
     }
-    commentLabel.text = post.description
+    commentLabel.text = post.postDescription
     updateLikes()
     configureLayout()
   }
+
+ func configure(with managedPost: ManagedPost) {
+
+    }
   
   private func configureLayout () {
     commentLabel.sizeToFit()
@@ -209,7 +214,7 @@ class FeedCell: UITableViewCell {
   
   func goToListView() {
     Router.window?.lockTheView()
-    NetworkEngine.shared.usersLikedSpecificPost(postID: post.id) {[weak self] result in
+    NetworkEngine.shared.usersLikedSpecificPost(postID: post.postid) {[weak self] result in
       switch result {
         case .failure(let error):
           if let vc = self?.delegate as? FeedTableViewController {
@@ -254,7 +259,7 @@ class FeedCell: UITableViewCell {
   
   func likeTapped() {
     if post.currentUserLikesThisPost {
-      NetworkEngine.shared.unlikePost(postID: post.id) { [weak self] result in
+      NetworkEngine.shared.unlikePost(postID: post.postid) { [weak self] result in
         guard let self = self else { return }
         switch result {
           case .failure(let error):
@@ -271,7 +276,7 @@ class FeedCell: UITableViewCell {
         }
       }
     } else {
-      NetworkEngine.shared.likePost(postID: post.id) { [weak self] result in
+      NetworkEngine.shared.likePost(postID: post.postid) { [weak self] result in
         guard let self = self else { return }
         switch result {
           case .failure(let error):

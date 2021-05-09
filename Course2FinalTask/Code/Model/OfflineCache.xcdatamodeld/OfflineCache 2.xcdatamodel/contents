@@ -10,6 +10,7 @@
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="likedByCount" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="postDescription" optional="YES" attributeType="String"/>
+        <relationship name="ofUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ManagedUser" inverseName="post" inverseEntity="ManagedUser"/>
     </entity>
     <entity name="ManagedUser" representedClassName="ManagedUser" syncable="YES" codeGenerationType="class">
         <attribute name="avatarImage" optional="YES" attributeType="Binary"/>
@@ -20,9 +21,10 @@
         <attribute name="fullName" optional="YES" attributeType="String"/>
         <attribute name="id" optional="YES" attributeType="String"/>
         <attribute name="userName" optional="YES" attributeType="String"/>
+        <relationship name="post" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="ManagedPost" inverseName="ofUser" inverseEntity="ManagedPost"/>
     </entity>
     <elements>
-        <element name="ManagedPost" positionX="-63" positionY="-18" width="128" height="164"/>
-        <element name="ManagedUser" positionX="-54" positionY="-9" width="128" height="149"/>
+        <element name="ManagedPost" positionX="-63" positionY="-18" width="128" height="179"/>
+        <element name="ManagedUser" positionX="-54" positionY="-9" width="128" height="164"/>
     </elements>
 </model>

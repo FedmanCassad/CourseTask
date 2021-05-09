@@ -11,6 +11,7 @@ import UIKit
 class HeaderView: UICollectionReusableView {
   var user: User! {
     willSet {
+
       guard let currentUser = NetworkEngine.shared.currentUser else {return}
       if newValue.id == currentUser.id {
         self.folllowOrUnfollowButton.isHidden = true

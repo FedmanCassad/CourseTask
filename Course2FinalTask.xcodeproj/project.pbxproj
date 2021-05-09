@@ -39,6 +39,8 @@
 		D878392C24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878392B24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift */; };
 		D878393224CCD9A00096B051 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D878393124CCD9A00096B051 /* TabBarController.swift */; };
 		D88189A3257456FB0023D2A4 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88189A2257456FB0023D2A4 /* LoginViewController.swift */; };
+		D888DF5A26480D54007CFA8C /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = D888DF5926480D54007CFA8C /* DataProvider.swift */; };
+		D888DF5E26483991007CFA8C /* PostCellProviderInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D888DF5D26483991007CFA8C /* PostCellProviderInterface.swift */; };
 		D88D025824B26F03006A01E2 /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88D025724B26F03006A01E2 /* FeedCell.swift */; };
 		D893F89E2529170A00A2378A /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = D893F89D2529170A00A2378A /* ActivityIndicator.swift */; };
 		D8A3057224BA57CA009A2014 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A3057124BA57CA009A2014 /* HeaderView.swift */; };
@@ -120,6 +122,8 @@
 		D878392B24C65CF10096B051 /* FollowersFollowsTableView + DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FollowersFollowsTableView + DataSource.swift"; sourceTree = "<group>"; };
 		D878393124CCD9A00096B051 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		D88189A2257456FB0023D2A4 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		D888DF5926480D54007CFA8C /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		D888DF5D26483991007CFA8C /* PostCellProviderInterface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCellProviderInterface.swift; sourceTree = "<group>"; };
 		D88D025724B26F03006A01E2 /* FeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		D893F89D2529170A00A2378A /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
 		D8A3057124BA57CA009A2014 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 			isa = PBXGroup;
 			children = (
 				D8D64D3A25859730003A87D3 /* NavigationCoordinator.swift */,
+				D888DF5D26483991007CFA8C /* PostCellProviderInterface.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -482,6 +487,7 @@
 			children = (
 				D8B5C9BB2576E24400B21F62 /* NetworkiSingleton.swift */,
 				D83214482647505500E0AF35 /* CoreDataService.swift */,
+				D888DF5926480D54007CFA8C /* DataProvider.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -686,6 +692,7 @@
 				D85C54D8253CDC0A0038D68B /* SharePostViewController.swift in Sources */,
 				D8B5C9BE2577072F00B21F62 /* LoginViewController+LoginFlow.swift in Sources */,
 				D878392024C654590096B051 /* SupportionModel.swift in Sources */,
+				D888DF5E26483991007CFA8C /* PostCellProviderInterface.swift in Sources */,
 				D8F62519264491E600B78578 /* LoginManager.swift in Sources */,
 				D8A3057524BB5D35009A2014 /* ProfilePhotosCell.swift in Sources */,
 				D85DF9E6253B8EF400F947AC /* AddImageViewController+CollectionViewLayoutDelegate.swift in Sources */,
@@ -717,6 +724,7 @@
 				D85DF9E02537AE1200F947AC /* AddImageViewController.swift in Sources */,
 				D878392524C656340096B051 /* ProfileViewController + FlowLayoutDelegate.swift in Sources */,
 				D88D025824B26F03006A01E2 /* FeedCell.swift in Sources */,
+				D888DF5A26480D54007CFA8C /* DataProvider.swift in Sources */,
 				D85C54CC253C6EE20038D68B /* AddImageViewController+FiltersFullSizeCellDelegate.swift in Sources */,
 				D8A3057724BB64FF009A2014 /* FeedCellInterface.swift in Sources */,
 				D8DCBF422575A122007C7F5F /* UIViewController+HexConverter.swift in Sources */,

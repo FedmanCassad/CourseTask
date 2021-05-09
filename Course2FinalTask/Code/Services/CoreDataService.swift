@@ -8,7 +8,6 @@
 
 import CoreData
 import UIKit
-import Kingfisher
 
 protocol OfflineCacher {
   func saveCodableUserToPersistentStore(user: User)
@@ -56,8 +55,30 @@ class CoreDataService {
     return object
   }
 
+  func deleteObject<T: NSManagedObject> (object: T) {
+    let context = getContext()
+    context.delete(object)
+    save()
+  }
+
+  private func fetchData<T: NSManagedObject> (for entity: T.Type, with predicate: NSPredicate? = nil) -> [T]? {
+    let context = getContext()
+    let request: NSFetchRequest<T>
+    var fetchedResult = [T]()
+    request = NSFetchRequest(entityName: String(describing: entity))
+    request.predicate = predicate
+    do  {
+      fetchedResult = try context.fetch(request)
+    } catch {
+      debugPrint("Error occurred: \(error.localizedDescription)")
+    }
+    return fetchedResult
+  }
+
 }
+
 extension CoreDataService: OfflineCacher {
+  
   func saveCodableUserToPersistentStore(user: User) {
     let managedUser = createObject(from: ManagedUser.self)
     guard let url = URL(string: user.avatar) else {
@@ -81,15 +102,23 @@ extension CoreDataService: OfflineCacher {
     let postImage = UIImage(contentsOfFile: post.image.absoluteString)?.pngData()
     managedPost?.image = postImage
     managedPost?.authorAvatarImage = avatarImage
-    managedPost?.id = post.id
-    managedPost?.postDescription = post.description
+    managedPost?.id = post.postid
+    managedPost?.postDescription = post.postDescription
     managedPost?.createdTime = post.createdTime
     managedPost?.author = post.author
     managedPost?.authorUsername = post.authorUsername
     managedPost?.currentUserLikesThisPost = post.currentUserLikesThisPost
     managedPost?.likedByCount = Int16(post.likedByCount)
     save()
+
+
   }
 
+  func getFeed(for feedObject: inout [Post]) {
+//    let managedFeed = fetchData(for: ManagedPost.self)
+//    feedObject = managedFeed?.map {post in
+//      guard let post = post  else { return }
 
-}
+    }
+  }
+

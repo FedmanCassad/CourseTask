@@ -208,12 +208,12 @@ class NetworkEngine {
   func loginToServer(login: String, password: String, completion: @escaping (Result<String?, ErrorHandlingDomain>) -> ()) {
     performRequest(for: .signIn(String.self, login: login, password: password)) {[weak self] result in
       switch result {
-      case let .failure(error):
-        completion(.failure(error))
-        return
       case .success(let token):
         self?.token = token
         completion(.success(token))
+      case let .failure(error):
+        completion(.failure(error))
+        return
       }
     }
   }
@@ -222,10 +222,10 @@ class NetworkEngine {
   func getFeed(handler:@escaping (Result<[Post], ErrorHandlingDomain>) -> ()) {
     performRequest(for: .feed([Post].self)) {result in
       switch result {
-      case .failure(let error):
-        handler(.failure(error))
       case .success(let feed):
         handler(.success(feed!))
+      case .failure(let error):
+        handler(.failure(error))
       }
     }
   }
@@ -235,11 +235,11 @@ class NetworkEngine {
     self.token = token
     performRequest(for: .getCurrentUser(User.self)) {[weak self] result in
       switch result {
-      case .failure(let error):
-        handler(.failure(error))
       case .success(let user):
         self?.currentUser = user
         handler(.success(user))
+      case .failure(let error):
+        handler(.failure(error))
       }
     }
   }
@@ -248,10 +248,10 @@ class NetworkEngine {
   func findPosts(by: String, handler: @escaping (Result<[Post]?, ErrorHandlingDomain>) -> ()) {
     performRequest(for: .findPosts([Post].self, by)) {result in
       switch result {
-      case let .failure(error):
-        handler(.failure(error))
       case let .success(posts):
         handler(.success(posts))
+      case let .failure(error):
+        handler(.failure(error))
       }
     }
   }
@@ -260,10 +260,10 @@ class NetworkEngine {
   func usersFollowingUser(with userID: String, handler: @escaping (Result<[User]?, ErrorHandlingDomain>) -> ()) {
     performRequest(for: .userFollowed([User].self, userID)) {result in
       switch result {
-      case let .failure(error):
-        handler(.failure(error))
       case let .success(users):
         handler(.success(users))
+      case let .failure(error):
+        handler(.failure(error))
       }
     }
   }
@@ -272,10 +272,10 @@ class NetworkEngine {
   func usersFollowedByUser(with userID: String, handler: @escaping (Result<[User]?, ErrorHandlingDomain>) -> ()) {
     performRequest(for: .userFollowings([User].self, userID)) {result in
       switch result {
-      case let .failure(error):
-        handler(.failure(error))
       case let .success(users):
         handler(.success(users))
+      case let .failure(error):
+        handler(.failure(error))
       }
     }
   }
@@ -283,10 +283,10 @@ class NetworkEngine {
   func follow(with userID: String, handler: @escaping (Result<User?, ErrorHandlingDomain>) -> ()) {
     performRequest(for: .follow(User.self, userID)) {result in
       switch result {
-      case let .failure(error):
-        handler(.failure(error))
       case let .success(user):
         handler(.success(user))
+      case let .failure(error):
+        handler(.failure(error))
       }
     }
   }
@@ -295,11 +295,10 @@ class NetworkEngine {
   func unfollow(with userID: String, handler: @escaping (Result<User?, ErrorHandlingDomain>) -> ()) {
     performRequest(for: .unfollow(User.self, userID)) {result in
       switch result {
-      case let .failure(error):
-        
-        handler(.failure(error))
       case let .success(user):
         handler(.success(user))
+      case let .failure(error):
+        handler(.failure(error))
       }
     }
   }
@@ -308,11 +307,11 @@ class NetworkEngine {
   func currentUser(handler: @escaping (Result<User?, ErrorHandlingDomain>) -> ()) {
     performRequest(for: .getCurrentUser(User.self)) {result in
       switch result {
-      case let .failure(error):
-        handler(.failure(error))
       case let .success(user):
         self.currentUser = user
         handler(.success(user))
+      case let .failure(error):
+        handler(.failure(error))
       }
     }
   }
@@ -321,10 +320,10 @@ class NetworkEngine {
   func uploadPost(image: UIImage, description: String, handler: @escaping (Result<Post?, ErrorHandlingDomain>) -> ()) {
     performRequest(for: .uploadPost(Post.self, image: image, description: description)) {result in
       switch result {
-      case .failure(let error):
-        handler(.failure(error))
       case .success(let post):
         handler(.success(post))
+      case .failure(let error):
+        handler(.failure(error))
       }
     }
   }
@@ -357,10 +356,10 @@ class NetworkEngine {
   func likePost(postID: String, handler: @escaping (Result<Post?, ErrorHandlingDomain>) -> ()) {
     performRequest(for: .likePost(Post.self, postID: postID)) {result in
       switch result {
-      case .failure(let error):
-        handler(.failure(error))
       case .success(let post):
         handler(.success(post))
+      case .failure(let error):
+        handler(.failure(error))
       }
     }
   }
@@ -369,10 +368,10 @@ class NetworkEngine {
   func unlikePost(postID: String, handler: @escaping (Result<Post?, ErrorHandlingDomain>) -> ()) {
     performRequest(for: .unlikePost(Post.self, postID: postID)) {result in
       switch result {
-      case .failure(let error):
-        handler(.failure(error))
       case .success(let post):
         handler(.success(post))
+      case .failure(let error):
+        handler(.failure(error))
       }
     }
   }

@@ -9,11 +9,12 @@
 import UIKit
 
 class FeedTableViewController: UIViewController {
-  
+  let dataProvider: DataProvider
   var feed: [Post]
   let tableView = UITableView()
   
-  init(feed: [Post] ) {
+  init(feed: [Post], dataProvider: DataProvider) {
+    self.dataProvider = dataProvider
     self.feed = feed
     super.init(nibName: nil, bundle: nil)
   }
@@ -33,7 +34,6 @@ class FeedTableViewController: UIViewController {
     tableView.separatorStyle = .none
     tableView.allowsSelection = false
     title = "Feed"
-   
   }
   
 }

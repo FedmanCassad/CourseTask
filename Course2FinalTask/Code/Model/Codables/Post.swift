@@ -6,11 +6,18 @@
 //  Copyright © 2020 e-Legion. All rights reserved.
 //
 
-import Foundation
+import CoreData
 
-public class Post: Codable {
-  var id, description, createdTime, author, authorUsername : String
-  var image, authorAvatar: URL
-  var currentUserLikesThisPost: Bool
-  var likedByCount: Int    
+public class Post: NSManagedObject, Codable {
+  var postid, postDescription, createdTime, author, authorUsername: String?
+  var image, authorAvatar: URL?
+  var currentUserLikesThisPost: Bool?
+  var likedByCount: Int?
+  var imageData, avatarImageData: Data?
+
+  enum CodingKeys: String, CodingKey {
+        case postid = "id"
+    case postDescription = "description"
+    case createdTime, author, authorUsername, image, authorAvatar, currentUserLikesThisPost, likedByCount, imageData, avatarImageData
+    }
 }

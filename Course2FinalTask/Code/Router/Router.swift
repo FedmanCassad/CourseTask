@@ -23,23 +23,29 @@ class Router: NSObject, NavigationCoordinator {
   override private init() {}
   static func entryPoint(feed: [Post], currentUser: User) {
     DispatchQueue.main.async {
-    let feedImage = UIImage(named: "feed")
-    let profileImage = UIImage(named: "profile")
-    let addImage = UIImage(named: "plus")
-    let feedViewController = FeedTableViewController(feed: feed)
-    let imageLibraryViewController = AddImageViewController()
-    let profileVC = ProfileViewController(user: currentUser)
-    profileVC.configure(user: currentUser)
-    feedNavigationController.viewControllers = [feedViewController]
-    addImageNavigationController.viewControllers = [imageLibraryViewController]
-    profileNavigationController.viewControllers = [profileVC]
-    addImageNavigationController.tabBarItem = UITabBarItem(title: "New post", image: addImage, tag: 1)
-    feedNavigationController.tabBarItem = UITabBarItem(title: "Feed", image: feedImage, tag: 0)
-    profileNavigationController.tabBarItem = UITabBarItem(title: "Profile", image: profileImage, tag: 2)
-    tabBarController.viewControllers = [feedNavigationController, addImageNavigationController, profileNavigationController]
-    tabBarController.tabBar.unselectedItemTintColor = .lightGray
-    window?.rootViewController = tabBarController
-    window?.makeKeyAndVisible()
+      let feedImage = UIImage(named: "feed")
+      let profileImage = UIImage(named: "profile")
+      let addImage = UIImage(named: "plus")
+      let dataProvider = DataProvider(offlineProviderModelName: "OfflineCache",
+                                      mode: .online)
+      let feedViewController = FeedTableViewController(feed: feed,
+                                                       dataProvider: dataProvider)
+      let imageLibraryViewController = AddImageViewController()
+      let profileVC = ProfileViewController(user: currentUser)
+      profileVC.configure(user: currentUser)
+      feedNavigationController.viewControllers = [feedViewController]
+      addImageNavigationController.viewControllers = [imageLibraryViewController]
+      profileNavigationController.viewControllers = [profileVC]
+      addImageNavigationController.tabBarItem = UITabBarItem(title: "New post",
+                                                             image: addImage, tag: 1)
+      feedNavigationController.tabBarItem = UITabBarItem(title: "Feed",
+                                                         image: feedImage, tag: 0)
+      profileNavigationController.tabBarItem = UITabBarItem(title: "Profile",
+                                                            image: profileImage, tag: 2)
+      tabBarController.viewControllers = [feedNavigationController, addImageNavigationController, profileNavigationController]
+      tabBarController.tabBar.unselectedItemTintColor = .lightGray
+      window?.rootViewController = tabBarController
+      window?.makeKeyAndVisible()
     }
   }
   
@@ -53,9 +59,11 @@ class Router: NSObject, NavigationCoordinator {
     addImageNavigationController.viewControllers = [AddImageViewController()]
     feedViewController?.feed.insert(post, at: 0)
     feedViewController?.tableView.reloadData()
-    feedViewController?.tableView.scrollToRow(at: .init(item: 0, section: 0), at: .top, animated: true)
+    feedViewController?.tableView.scrollToRow(at: .init(item: 0, section: 0),
+                                              at: .top,
+                                              animated: true)
     feedNavigationController.popToRootViewController(animated: true)
     tabBarController.selectedIndex = 0
-   
+
   }
 }
