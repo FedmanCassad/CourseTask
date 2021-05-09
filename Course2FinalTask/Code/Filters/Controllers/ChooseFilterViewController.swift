@@ -7,24 +7,35 @@
 //
 
 import UIKit
-import DataProvider
 
 class ChooseFilterViewController: UIViewController {
   
   lazy var mainImageView: UIImageView = {
     let imageView = UIImageView()
-    imageView.frame.size.width = UIScreen.main.bounds.width
+    imageView.translatesAutoresizingMaskIntoConstraints = false
+    imageView.frame.size.width = view.frame.width
     imageView.frame.size.height = imageView.frame.width
     return imageView
   }()
   
-  
-  
-  lazy var filterThumbinals: UICollectionView = {
+  lazy var filterThumbnails: UICollectionView = {
     let layout = UICollectionViewFlowLayout()
-    layout.scrollDirection = .horizontal
     let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: layout)
+    guard let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return collectionView}
+    flowLayout.scrollDirection = .horizontal
+    collectionView.isPagingEnabled = true
+    collectionView.translatesAutoresizingMaskIntoConstraints = false
+    flowLayout.estimatedItemSize = CGSize(width: 1, height: 1)
     return collectionView
+  }()
+
+  lazy var pageControl: UIPageControl = {
+    let control = UIPageControl()
+    control.translatesAutoresizingMaskIntoConstraints = false
+    control.backgroundColor = .systemGray3
+    control.numberOfPages = effectsKeys.count
+    control.frame.size = CGSize(width: filterThumbnails.frame.width, height: 10)
+    return control
   }()
   
   var protectedImage: UIImage?
@@ -40,21 +51,26 @@ class ChooseFilterViewController: UIViewController {
     mainImageView.image = image
     protectedImage = image
     view.addSubview(mainImageView)
-    filterThumbinals.frame.size.height = view.frame.height - mainImageView.frame.height
-    filterThumbinals.frame.origin = CGPoint(x: 0, y: mainImageView.frame.maxY)
-    filterThumbinals.backgroundColor = .white
-    view.addSubview(filterThumbinals)
-    filterThumbinals.dataSource = self
-    filterThumbinals.delegate = self
-    filterThumbinals.isScrollEnabled = true
-    filterThumbinals.clipsToBounds = true
-    filterThumbinals.register(FiltersThumbinalCell.self, forCellWithReuseIdentifier: "FiltersThumbinalCell")
+    filterThumbnails.frame.size.height = view.frame.height - mainImageView.frame.height - 10
+    filterThumbnails.frame.origin = CGPoint(x: 0, y: mainImageView.frame.maxY)
+    filterThumbnails.backgroundColor = .white
+    filterThumbnails.showsHorizontalScrollIndicator = false
+    view.addSubview(filterThumbnails)
+    filterThumbnails.dataSource = self
+    filterThumbnails.delegate = self
+    filterThumbnails.isScrollEnabled = true
+    filterThumbnails.clipsToBounds = false
+    filterThumbnails.register(FiltersThumbinalCell.self, forCellWithReuseIdentifier: "FiltersThumbinalCell")
+    let tabBarHeight = Router.addImageNavigationController.tabBarController?.tabBar.frame.height
+    pageControl.frame.origin = CGPoint(x: 0, y: filterThumbnails.frame.height + mainImageView.frame.height - (tabBarHeight ?? 0))
+    pageControl.bounds = pageControl.frame
+    view.addSubview(pageControl)
     title = "New post"
     navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(goToSharePostVC))
   }
   
   override func viewWillLayoutSubviews() {
-    filterThumbinals.frame.size.height -= tabBarController?.tabBar.frame.height ?? 0
+    filterThumbnails.frame.size.height -= tabBarController?.tabBar.frame.height ?? 0
   }
   
   required init?(coder: NSCoder) {

@@ -18,7 +18,7 @@ extension AddImageViewController: UICollectionViewDataSource {
     let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FiltersFullSizeCell", for: indexPath) as!
      FiltersFullSizeCell
     cell.delegate = self
-    cell.configureForPhotosLibrary(imageLibrary[indexPath.item])
+    cell.configureForPhotosLibrary(imageLibrary[indexPath.item]!)
     return cell
   }
   

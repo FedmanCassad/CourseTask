@@ -4,9 +4,10 @@
 //
 //  Created by Vladimir Banushkin on 21.07.2020.
 //  Copyright © 2020 e-Legion. All rights reserved.
-//
+
 
 import UIKit
+
 extension ProfileViewController: UICollectionViewDelegateFlowLayout {
   func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
     var size = CGSize(width: collectionView.bounds.width/3 - 1, height: 0)

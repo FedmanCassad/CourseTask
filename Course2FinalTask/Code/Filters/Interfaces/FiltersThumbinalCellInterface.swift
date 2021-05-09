@@ -9,5 +9,5 @@
 import UIKit
 
 protocol FiltersFullSizeCellDelegate {
-  func goToFiltersViewController(image: UIImage) 
+  func goToFiltersViewController(image: UIImage)
 }

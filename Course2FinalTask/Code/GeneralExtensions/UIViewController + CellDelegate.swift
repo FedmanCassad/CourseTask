@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import DataProvider
+
 
 
 
@@ -15,9 +15,9 @@ extension UIViewController: FeedCellDelegate {
   
   
   func goToProfilesList(users: [User],user: User, _ meaning: DestinationMeaning) {
-    
+
     let destinationVC = FollowersFollowsTableViewController()
-    
+
     destinationVC.listOfUsers = users
     guard let tabBarController = tabBarController else {return}
     tabBarController.selectedIndex = 2
@@ -28,56 +28,59 @@ extension UIViewController: FeedCellDelegate {
       case .follows:
         destinationVC.title = "Follows"
     }
-    
+
     if navigationController.viewControllers.isEmpty {
-      
+
       let profileController = ProfileViewController(user: user)
-      
+
       navigationController.viewControllers = [profileController]
       navigationController.pushViewController(destinationVC, animated: true)
     }
-      
-    else if navigationController.viewControllers.count == 1 {
-      let profileController = ProfileViewController(user: user)
-      navigationController.viewControllers = [profileController]
-      
-      
+
+    else if navigationController.viewControllers.count > 0 {
+
       navigationController.pushViewController(destinationVC, animated: true)
     }
-      
+
     else {
       let profileController = ProfileViewController(user: user)
       navigationController.viewControllers.append(profileController)
       navigationController.pushViewController(destinationVC, animated: true)
     }
-    UIApplication.shared.keyWindow?.unlockTheView()
+   Router.window?.unlockTheView()
   }
-  
+
   func goToSelectedProfile(user: User) {
-    _ = ProfileViewController(user: user){[weak self] controller in
-      guard let self = self else {return}
-      guard let tabBarController = self.tabBarController else {return}
+    _ = ProfileViewController(user: user){[self] controller in
+      guard let tabBarController = self.tabBarController else
+      {return}
       tabBarController.selectedIndex = 2
       guard let navigationController = tabBarController.selectedViewController as? UINavigationController else {return}
       guard !navigationController.viewControllers.isEmpty else {
+        controller.configure(user: user)
         navigationController.pushViewController(controller, animated: true)
         return
       }
       if navigationController.viewControllers[0] is ProfileViewController {
-        navigationController.viewControllers.removeLast()
-        navigationController.pushViewController(controller, animated: false)
+        controller.configure(user: user)
+        navigationController.pushViewController(controller, animated: true)
       }
       else {
+        controller.configure(user: user)
         navigationController.pushViewController(controller, animated: true)
       }
     }
-    UIApplication.shared.keyWindow?.unlockTheView()
+   Router.window?.unlockTheView()
   }
-  
-  func alert(completion: ((UIViewController) -> ())?) {
-    let alertController = UIAlertController(title: "Unknown error!", message: "Please try again later", preferredStyle: .alert)
+}
+
+//MARK: - Error displaying
+extension UIViewController {
+  func alert(error: ErrorHandlingDomain) {
+    let alertController = UIAlertController(title: error.localizedDescription.0, message: error.localizedDescription.1, preferredStyle: .alert)
     alertController.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
-    self.present(alertController, animated: true, completion: nil)
+    DispatchQueue.main.async {
+      self.present(alertController, animated: true, completion: nil)
+    }
   }
-  
 }

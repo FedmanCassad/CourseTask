@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DataProvider
 
 class FiltersThumbinalCell: UICollectionViewCell {
   private lazy var thumbinalImage: UIImageView = {
@@ -29,7 +28,7 @@ class FiltersThumbinalCell: UICollectionViewCell {
   
   func configure(image: UIImage, filterName: String){
     let queue = DispatchQueue(label: "Filtering", qos: .utility, attributes: .concurrent)
-    self.thumbinalImage.frame.size = CGSize(width: 50, height: 50)
+    self.thumbinalImage.frame.size = (delegate?.sizeForThumbinalImage())!
     self.thumbinalImage.contentMode = .scaleAspectFit
     self.thumbinalImage.center = self.contentView.center
     self.thumbinalImage.addGestureRecognizer(gestureRecognizer)
@@ -51,7 +50,6 @@ class FiltersThumbinalCell: UICollectionViewCell {
       if safeFilter.inputKeys.contains(kCIInputRadiusKey) { safeFilter.setValue(self.intensityConst * 100, forKey: kCIInputRadiusKey) }
       if safeFilter.inputKeys.contains(kCIInputScaleKey) { safeFilter.setValue(self.intensityConst * 25, forKey: kCIInputScaleKey) }
       if safeFilter.inputKeys.contains(kCIInputCenterKey) { safeFilter.setValue(CIVector(x: image.size.width/2 , y: image.size.height/2), forKey: kCIInputCenterKey) }
-      
       if let filteredImage = safeFilter.outputImage {
         if let resultingImage = context.createCGImage(filteredImage, from: filteredImage.extent) {
           let imageToSet = UIImage(cgImage: resultingImage)
@@ -66,6 +64,4 @@ class FiltersThumbinalCell: UICollectionViewCell {
   @objc func applyFilter() {
     delegate?.applyFilter(filteredImage)
   }
-  
 }
-

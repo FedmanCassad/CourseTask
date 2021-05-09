@@ -1,32 +1,29 @@
-//
+
 //  FeedTableView.swift
 //  Course2FinalTask
 //
 //  Created by Vladimir Banushkin on 06.07.2020.
 //  Copyright © 2020 e-Legion. All rights reserved.
-//
+
 
 import UIKit
-import DataProvider
+
 class FeedTableViewController: UIViewController {
   
-  var feed: [DataProvider.Post] = []
+  var feed: [Post]
   let tableView = UITableView()
   
+  init(feed: [Post] ) {
+    self.feed = feed
+    super.init(nibName: nil, bundle: nil)
+  }
+  
+  required init?(coder: NSCoder) {
+    fatalError("init(coder:) has not been implemented")
+  }
   //MARK: - Lifecycle
   override func viewDidLoad() {
     super.viewDidLoad()
-    let group = DispatchGroup()
-    group.enter()
-    DataProviders.shared.postsDataProvider.feed(queue: .global(qos: .userInteractive)){[weak self] posts in
-      guard let self = self else {return}
-      guard let posts = posts else {
-        self.alert(completion: nil)
-        return}
-      self.feed = posts
-      group.leave()
-    }
-    group.wait()
     tableView.translatesAutoresizingMaskIntoConstraints = false
     tableView.frame = UIScreen.main.bounds
     view.addSubview(tableView)
@@ -36,6 +33,7 @@ class FeedTableViewController: UIViewController {
     tableView.separatorStyle = .none
     tableView.allowsSelection = false
     title = "Feed"
+   
   }
   
 }

@@ -6,9 +6,10 @@
 //  Copyright © 2020 e-Legion. All rights reserved.
 //
 import UIKit
-import DataProvider
+
 
 class FiltersFullSizeCell: ProfilePhotosCell {
+  
   private lazy var imageView: UIImageView = {
     let imageView = UIImageView()
     return imageView

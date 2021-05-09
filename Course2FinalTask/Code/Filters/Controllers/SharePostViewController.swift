@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import DataProvider
 
 class SharePostViewController: UIViewController {
   
@@ -60,28 +59,23 @@ class SharePostViewController: UIViewController {
   }
   
   @objc func sharePost() {
-    UIApplication.shared.keyWindow?.lockTheView()
+     Router.window?.lockTheView()
     _ = self.textFieldShouldReturn(textField)
     guard let image = postImage.image,
-      let description = textField.text else {return}
+          let description = textField.text else {return}
     
-    DataProviders.shared.postsDataProvider.newPost(with: image, description: description, queue: .global(qos: .userInitiated)) {[weak self] post in
+    NetworkEngine.shared.uploadPost(image: image, description: description) {[weak self] result in
       guard let self = self else {return}
-      guard let post = post else {
-        self.alert(completion: nil)
-        return
-      }
-       
-      DispatchQueue.main.async {
-        UIApplication.shared.keyWindow?.unlockTheView()
-        self.tabBarController?.selectedIndex = 0
-        if let navigationController = self.tabBarController?.selectedViewController as? UINavigationController {
-          if let feed = navigationController.viewControllers[0] as? FeedTableViewController {
-            feed.feed.insert(post, at: 0)
-            feed.tableView.scrollToRow(at: .init(item: 0, section: 0), at: .top, animated: true)
-            self.navigationController?.viewControllers.removeLast(2)
+      switch result {
+        case .failure(let error):
+          self.alert(error: error)
+        case .success(let post):
+          if let post = post {
+            DispatchQueue.main.async {
+             Router.window?.unlockTheView()
+              Router.updateFeedIfNeeded(with: post)
+            }
           }
-        }
       }
     }
   }
