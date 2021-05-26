@@ -18,11 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   }
   
   private func initiateWindow() {
-    let vc = LoginViewController()
-    window = UIWindow(frame: UIScreen.main.bounds)
-    window?.rootViewController = vc
-    window?.makeKeyAndVisible()
-    window?.lockTheView()
+//    let vc = LoginViewController()
+//    window = UIWindow(frame: UIScreen.main.bounds)
+//    window?.rootViewController = vc
+//    window?.makeKeyAndVisible()
+//    window?.lockTheView()
   }
   
 }
